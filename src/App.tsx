@@ -1,10 +1,27 @@
 import React from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import logo from './logo.svg';
 import './App.css';
+import './component/UpperPanel.css';
+import './component/Button.css';
 
 function App() {
   return (
     <div className="App">
+      <view className="UpperPanelStyle">
+        <button
+          type="button"
+          className="ButtonStyle"
+          onClick={() => {
+          }}
+        >
+          Button
+        </button>
+        <Popup trigger={<button type="button" className="ButtonStyle">popup Button</button>} position="bottom center">
+          <div>Саня гей</div>
+        </Popup>
+      </view>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
