@@ -1,12 +1,13 @@
 .ButtonStyle {
-    background-color: #A6866A;
+    background-color: #5fb667;
     color: white;
     padding: 10px 20px;
+    border: 2px solid #ffffff;
     border-radius: 10px;
     outline: 0;
     text-transform: uppercase;
     margin: 10px 0px;
     cursor: pointer;
-    box-shadow: 0px 2px 2px #878787;
+    /*box-shadow: 0px 2px 2px #ffffff;*/
     transition: ease background-color 250ms;
 }

@@ -1,5 +1,5 @@
 .LeftPanelStyle {
-    background-color: #9AAAAA;
+    background-color: #5fb667;
     /*background: linear-gradient(to right, #BABFAC, #E0E6CF);*/
     height: available;
     width: 20vw;
@@ -9,6 +9,6 @@
     justify-content: flex-start;
     display: flex;
     padding: 2px;
-    border: 2px solid #7C8073;
+    /*border: 2px solid #7C8073;*/
     border-radius: 10px;
 }
