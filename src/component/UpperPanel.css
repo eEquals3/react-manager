@@ -1,6 +1,6 @@
 .UpperPanelStyle {
-    /*background-color: #BABFAC;*/
-    background: linear-gradient(to right, #BABFAC, #E0E6CF);
+    background-color: #949699;
+    /*background: linear-gradient(to right, #BABFAC, #E0E6CF);*/
     display: flex;
     flex-direction: column;
     align-items: flex-end;

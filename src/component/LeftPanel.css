@@ -1,6 +1,6 @@
 .LeftPanelStyle {
-    /*background-color: #BABFAC;*/
-    background: linear-gradient(to right, #BABFAC, #E0E6CF);
+    background-color: #949699;
+    /*background: linear-gradient(to right, #BABFAC, #E0E6CF);*/
     height: available;
     width: 20vw;
     flex-direction: column;
