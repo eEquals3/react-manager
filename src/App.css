@@ -10,10 +10,11 @@
   display: flex
 }
 
-/*.App-logo {*/
-/*  height: 40vmin;*/
-/*  pointer-events: none;*/
-/*}*/
+.App-logo {
+  width: auto;
+  height: 20vh;
+  pointer-events: none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -22,6 +23,7 @@
 }
 
 .App-header {
+  width: calc(75vw - 4px);
   background-color: #282c34;
   display: flex;
   flex-direction: column;

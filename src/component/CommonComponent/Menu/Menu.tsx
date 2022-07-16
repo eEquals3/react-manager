@@ -6,13 +6,13 @@ function Menu() {
   return (
     <div className="menu">
       <Popup
-        trigger={<div className="menu-item"> Список команд  </div>}
+        trigger={<div className="menu-mainManu"> Список команд  </div>}
         position="right top"
         on="hover"
         closeOnDocumentClick
         mouseLeaveDelay={150}
         mouseEnterDelay={50}
-        contentStyle={{ padding: 'px', border: 'none', background: 'transparent' }}
+        contentStyle={{ padding: '0px', border: 'none', background: 'transparent' }}
         arrow={false}
       >
         <div className="menu-subMenu">
@@ -22,8 +22,8 @@ function Menu() {
         </div>
       </Popup>
       <Popup
-        trigger={<div className="menu-item"> Статистика </div>}
-        position="right top"
+        trigger={<div className="menu-mainManu"> Статистика </div>}
+        position="right center"
         on="hover"
         closeOnDocumentClick
         mouseLeaveDelay={150}

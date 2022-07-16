@@ -2,7 +2,7 @@
     display: flex;
     height: 4vh;
     font-family: adobe-clean, sans-serif;
-    background-color: #c01515;
+    background-color: rgba(0, 0, 75, 0);
     color: white;
     padding: 1.1vh 1.3vw;
     font-size: 1.4vh;
