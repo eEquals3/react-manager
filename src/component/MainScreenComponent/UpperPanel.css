@@ -1,0 +1,13 @@
+.UpperPanelStyle {
+    background-color: #761c1c;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: normal;
+    padding-right: 20px;
+    /*margin-right: 0.5vw;
+    margin-left: 0.5vw;
+    border: 2px solid rgba(0, 0, 0, 1);
+    border-radius: 10px;*/
+    font-size: calc(10px + 2vmin);
+}

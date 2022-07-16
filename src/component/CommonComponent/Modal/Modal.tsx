@@ -1,23 +1,49 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, {
+  memo, useCallback, useState,
+} from 'react';
 import Popup from 'reactjs-popup';
 import './Modal.css';
-import './Button.css';
+import '../Button/Buttons.css';
 
-function Modal() {
+interface Props {
+  triggerButtonName: string;
+  triggerButtonStyle: string;
+  modalName:string
+  filling: ()=>void;
+}
+
+const contentStyle = { background: 'transparent', border: 'none' };
+
+function Modal({
+  triggerButtonName,
+  triggerButtonStyle,
+  modalName,
+  filling,
+}: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = useCallback(() => {
     setIsOpen(false);
+    filling();
   }, []);
 
   return (
     <>
-      <button type="button" className="ButtonStyle" onClick={() => { setIsOpen(true); }}> Open Modal </button>
+      <button
+        type="button"
+        className={triggerButtonStyle}
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        {triggerButtonName}
+      </button>
 
       <Popup
         open={isOpen}
         modal
         nested
         onClose={closeModal}
+        contentStyle={contentStyle}
       >
         <div className="modal">
           <button
@@ -27,9 +53,10 @@ function Modal() {
           >
             &times;
           </button>
-          <div className="header"> Modal Title </div>
+          <div className="header">
+            {modalName}
+          </div>
           <div className="content">
-            {' '}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
             Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
             delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
@@ -62,7 +89,6 @@ function Modal() {
         </div>
       </Popup>
     </>
-
   );
 }
 
