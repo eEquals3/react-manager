@@ -22,7 +22,7 @@ function App() {
           />
         </div>
       </view>
-      <header className="AppMainContent">
+      <header className="App-MainContent">
         <view className="LeftPanelStyle">
           <Menu />
         </view>

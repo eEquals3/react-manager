@@ -2,16 +2,32 @@
     /* width: 200px; */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-family: "Times New Roman", Georgia, Serif;
+    align-items: flex-start;
+    padding-left: 40px;
+    color: white;
+    font-family: "Arial", Georgia, Serif;
     font-size: 20px;
     background: rgba(255, 255, 255, 0);
 }
-.menu-item {
-    cursor: pointer;
-    padding: 5px;
-    height: 28px;
+
+.menu-subMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgba(4, 185, 187, 0.4), rgba(145, 0, 229, 0.51));
+    border-radius: 10px;
+    color: white;
 }
+
+.menu-item {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    height: 28px;
+
+}
+
 .menu-item:hover {
-    color: #051f7e;
+    color: #3559da;
 }
