@@ -1,7 +1,7 @@
 .LeftPanelStyle {
     background: rgba(0, 0, 75, 0.5);
     /*backgroundColor: 'transparent';*/
-    height: available;
+    /*height: 90vw;*/
     min-width: 20vw;
     width: max-content;
     flex-direction: column;

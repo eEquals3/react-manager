@@ -26,6 +26,7 @@ function App() {
         <view className="LeftPanelStyle">
           <Menu />
         </view>
+
         <view className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
