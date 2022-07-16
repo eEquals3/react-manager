@@ -1,10 +1,16 @@
+@font-face {
+    font-family: adobe-clean;
+    src: local("AdobeClean-Light"),
+        url(AdobeClean-Light.ttf);
+}
 .menu {
     /* width: 200px; */
     display: flex;
     flex-direction: column;
+    color: white;
     align-items: center;
-    font-family: "Times New Roman", Georgia, Serif;
-    font-size: 20px;
+    font-family: adobe-clean, sans-serif;
+    font-size: 30px;
     background: rgba(255, 255, 255, 0);
 }
 .menu-item {
