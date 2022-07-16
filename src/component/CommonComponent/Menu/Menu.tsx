@@ -12,10 +12,10 @@ function Menu() {
         closeOnDocumentClick
         mouseLeaveDelay={150}
         mouseEnterDelay={50}
-        contentStyle={{ padding: '0px' }}
+        contentStyle={{ padding: 'px', border: 'none', background: 'transparent' }}
         arrow={false}
       >
-        <div className="menu">
+        <div className="menu-subMenu">
           <div className="menu-item"> команда 1</div>
           <div className="menu-item"> команда 2</div>
           <div className="menu-item"> команда 3</div>
@@ -28,10 +28,10 @@ function Menu() {
         closeOnDocumentClick
         mouseLeaveDelay={150}
         mouseEnterDelay={50}
-        contentStyle={{ padding: '0px', border: 'none' }}
+        contentStyle={{ padding: '0px', border: 'none', background: 'transparent' }}
         arrow={false}
       >
-        <div className="menu">
+        <div className="menu-subMenu">
           <div className="menu-item"> команда 1</div>
           <div className="menu-item"> команда 2</div>
           <div className="menu-item"> команда 3</div>
