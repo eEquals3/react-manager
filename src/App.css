@@ -1,9 +1,9 @@
 .App {
   height: 100vh;
-  background: #9d9d9f;
+  background: linear-gradient(#e66465, #9198e5);
 }
 
-.AppCenter {
+.AppMainContent {
   height: 90vh;
   flex-direction: row;
   flex-wrap: wrap;

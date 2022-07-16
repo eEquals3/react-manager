@@ -1,0 +1,17 @@
+.menu {
+    /* width: 200px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0);
+}
+.menu-item {
+    cursor: pointer;
+    padding: 5px;
+    height: 28px;
+}
+.menu-item:hover {
+    color: #051f7e;
+}
