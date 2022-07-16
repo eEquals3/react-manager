@@ -24,6 +24,7 @@ function Modal({
   const closeModal = useCallback(() => {
     setIsOpen(false);
     filling();
+    console.log('ololo');
   }, []);
 
   return (

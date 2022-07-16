@@ -1,5 +1,6 @@
 .UpperPanelStyle {
-    background-color: #761c1c;
+    background: rgba(0, 0, 75, 0);
+    /*background-color: #761c1c;*/
     height: 6vh;
     display: flex;
     flex-direction: column;
