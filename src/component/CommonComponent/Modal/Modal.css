@@ -12,8 +12,10 @@
 .modal > .content {
     width: 100%;
     padding: 10px 5px;
+    border-bottom: 1px solid gray;
 }
 .modal > .actions {
+    flex-direction: row;
     width: 100%;
     padding: 10px 5px;
     margin: auto;

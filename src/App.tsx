@@ -18,8 +18,8 @@ function App() {
             triggerButtonName="Login"
             triggerButtonStyle="ButtonLoginStyle"
             modalName="Login"
-            RenderActions={<LoginAction />}
-            RenderContent={<LoginContent />}
+            renderActions={<LoginAction />}
+            renderContent={<LoginContent />}
           />
         </div>
       </view>

@@ -24,3 +24,9 @@
     font-family: "Times New Roman", Georgia, Serif;
     font-size: 20px;
 }
+
+.ButtonStyle:hover{
+    background: rgba(0,0,0, 0.2);
+    border-radius: 10px;
+    color: #051f7e;
+}

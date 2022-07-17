@@ -9,8 +9,8 @@ interface Props {
   triggerButtonName: string;
   triggerButtonStyle: string;
   modalName:string
-  RenderContent: ReactElement;
-  RenderActions: ReactElement;
+  renderContent: ReactElement;
+  renderActions: ReactElement;
 /*  someFn: ()=>void; */
 }
 
@@ -20,8 +20,8 @@ function Modal({
   triggerButtonName,
   triggerButtonStyle,
   modalName,
-  RenderContent,
-  RenderActions,
+  renderContent,
+  renderActions,
 /*  someFn, */
 }: Props):ReactElement {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +31,6 @@ function Modal({
     // fillingActions();
   }, []);
   /*
-
   const [st, setSt] = useState<string>('');
 */
 
@@ -41,31 +40,42 @@ function Modal({
   }, [someFn, st]);
 */
 
-  const renderSomeComp = useMemo(() => (
+  const renderModalButton = useMemo(() => (
     <button
       type="button"
-      className="menu-subMenuButtons"
+      className={triggerButtonStyle}
       onClick={() => {
-        /* setSt('kjfhukdhg'); */
-        /* someFn('kjfhukdhg'); */
+        setIsOpen(true);
       }}
     >
-      {' '}
-      a
+      {triggerButtonName}
     </button>
-  ), [1, 2, 3, 4, 5]);
+  ), [triggerButtonName]);
+
+  const renderModalBody = useMemo(() => (
+    <div className="modal">
+      <button
+        type="button"
+        className="close"
+        onClick={closeModal}
+      >
+        &times;
+      </button>
+      <div className="header">
+        {modalName}
+      </div>
+      <div className="content">
+        { renderContent }
+      </div>
+      <div className="actions">
+        { renderActions }
+      </div>
+    </div>
+  ), [renderContent, renderActions, modalName, closeModal]);
 
   return (
     <>
-      <button
-        type="button"
-        className={triggerButtonStyle}
-        onClick={() => {
-          setIsOpen(true);
-        }}
-      >
-        {triggerButtonName}
-      </button>
+      {renderModalButton}
 
       <Popup
         open={isOpen}
@@ -74,32 +84,7 @@ function Modal({
         onClose={closeModal}
         contentStyle={contentStyle}
       >
-        <div className="modal">
-          <button
-            type="button"
-            className="close"
-            onClick={closeModal}
-          >
-            &times;
-          </button>
-          <div className="header">
-            {modalName}
-          </div>
-          <div className="content">
-            { RenderContent }
-            { renderSomeComp }
-          </div>
-          <div className="actions">
-            { RenderActions }
-            <button
-              type="button"
-              className="button"
-              onClick={closeModal}
-            >
-              close modal
-            </button>
-          </div>
-        </div>
+        {renderModalBody}
       </Popup>
     </>
   );

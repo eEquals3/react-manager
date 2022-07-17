@@ -1,0 +1,14 @@
+.loginButtons{
+    height: max-content;
+    /* display: flex; */
+    background: transparent;
+    border: none;
+    padding: 1vh;
+    text-align: center;
+}
+
+.loginButtons:hover{
+    background: rgba(0,0,0, 0.2);
+    border-radius: 10px;
+    color: #051f7e;
+}
