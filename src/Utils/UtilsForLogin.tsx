@@ -4,15 +4,17 @@ import './LoginButtons.css';
 export function LoginContent(): ReactElement {
   return (
     <>
+      <label htmlFor="Name">
+        Username
+        <input type="text" />
+      </label>
 
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-      <label htmlFor="Name"> Username </label>
-      <input type="text" />
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <p>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="Psw"> Password </label>
-        <input type="password" />
+        <label htmlFor="Psw">
+          Password
+          <input type="password" />
+        </label>
+
       </p>
     </>
   );
