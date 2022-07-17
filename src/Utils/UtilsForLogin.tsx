@@ -4,8 +4,16 @@ import './LoginButtons.css';
 export function LoginContent(): ReactElement {
   return (
     <>
-      <text> ololo </text>
-      <text> ololo </text>
+
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label htmlFor="Name"> Username </label>
+      <input type="text" />
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <p>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        <label htmlFor="Psw"> Password </label>
+        <input type="password" />
+      </p>
     </>
   );
 }
