@@ -5,22 +5,16 @@ import './App.css';
 import './component/MainScreenComponent/UpperPanel.css';
 import './component/CommonComponent/Button/Buttons.css';
 import './component/MainScreenComponent/LeftPanel.css';
-import Modal from './component/CommonComponent/Modal/Modal';
+/* import Modal from './component/CommonComponent/Modal/Modal'; */
 import Menu from './component/CommonComponent/Menu/Menu';
-import { LoginAction, LoginContent } from './Utils/UtilsForLogin';
+import { LoginModal } from './Utils/LoginModal';
 
 function App() {
   return (
     <div className="App">
       <view className="UpperPanelStyle">
-        <div style={{ background: 'rgba(0, 0, 0, 0);' }}>
-          <Modal
-            triggerButtonName="Login"
-            triggerButtonStyle="ButtonLoginStyle"
-            modalName="Login"
-            renderActions={<LoginAction />}
-            renderContent={<LoginContent />}
-          />
+        <div style={{ background: 'rgba(0, 0, 0, 0)' }}>
+          <LoginModal />
         </div>
       </view>
       <header className="App-MainContent">

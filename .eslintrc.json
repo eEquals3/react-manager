@@ -31,6 +31,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "react/require-default-props": "warn",
         "no-console": "off",
 //        "linebreak-style": ["error", "unix"],
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],

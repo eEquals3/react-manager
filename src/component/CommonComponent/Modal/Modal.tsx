@@ -6,25 +6,27 @@ import './Modal.css';
 import '../Button/Buttons.css';
 
 interface Props {
-  triggerButtonName: string;
-  triggerButtonStyle: string;
-  modalName:string
+  triggerButtonName?: string;
+  triggerButtonStyle?: string;
+  modalName?:string
   renderContent: ReactElement;
-  renderActions: ReactElement;
+  renderActions?: ReactElement;
+  isAlert?:boolean;
 /*  someFn: ()=>void; */
 }
 
 const contentStyle = { background: 'transparent', border: 'none' };
 
 function Modal({
-  triggerButtonName,
-  triggerButtonStyle,
-  modalName,
-  renderContent,
-  renderActions,
+  triggerButtonName = '123',
+  triggerButtonStyle = '123',
+  modalName = 'Alert',
+  renderContent = <> A </>,
+  renderActions = <> A </>,
+  isAlert = false,
 /*  someFn, */
 }: Props):ReactElement {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(isAlert);
   const closeModal = useCallback(() => {
     setIsOpen(false);
     // fillingContent();
