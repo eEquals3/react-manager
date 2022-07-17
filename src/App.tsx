@@ -1,5 +1,4 @@
 import React from 'react';
-/* import Popup from 'reactjs-popup'; */
 import 'reactjs-popup/dist/index.css';
 import logo from './logo.svg';
 import './App.css';
@@ -24,7 +23,8 @@ function App() {
       </view>
       <header className="App-MainContent">
         <view className="LeftPanelStyle">
-          <Menu />
+          <Menu name="Список команд" containSubMenu={['команда 1', 'команда 2', 'команда 3']} />
+          <Menu name="Статистика" containSubMenu={['команда 1', 'команда 2', 'команда 3']} />
         </view>
 
         <view className="App-header">

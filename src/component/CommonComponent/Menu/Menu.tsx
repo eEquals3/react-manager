@@ -1,12 +1,50 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Popup from 'reactjs-popup';
 import './Menu.css';
 
-function Menu() {
+interface Props{
+    name: string;
+    containSubMenu: string[];
+}
+
+interface PropsAddSubMenu{
+    containSubMenu: string[];
+}
+
+interface PropsAddButton{
+    name: string
+}
+
+function AddButton({ name }: PropsAddButton):ReactElement {
+  return (
+    <button type="button" className="menu-subMenuButtons">
+      {' '}
+      { name }
+      {' '}
+    </button>
+  );
+}
+
+function AddSubMenu({ containSubMenu }:PropsAddSubMenu):ReactElement {
+  return (
+    <div className="menu-subMenu">
+      { containSubMenu.map((value) => AddButton({ name: value }))}
+    </div>
+  );
+}
+
+function Menu({ name, containSubMenu }:Props):ReactElement {
+  const names = containSubMenu;
   return (
     <div className="menu">
       <Popup
-        trigger={<div className="menu-mainMenu"> Список команд  </div>}
+        trigger={(
+          <div className="menu-mainMenu">
+            {' '}
+            { name }
+            {' '}
+          </div>
+        )}
         position="right top"
         on="hover"
         closeOnDocumentClick
@@ -15,28 +53,7 @@ function Menu() {
         contentStyle={{ padding: '0px', border: 'none', background: 'transparent' }}
         arrow={false}
       >
-        <div className="menu-subMenu">
-          <button type="button" className="menu-subMenuButtons"> команда 1</button>
-          <button type="button" className="menu-subMenuButtons"> команда 2</button>
-          <button type="button" className="menu-subMenuButtons"> команда 3</button>
-        </div>
-      </Popup>
-      <Popup
-        trigger={<div className="menu-mainMenu"> Статистика </div>}
-        position="right center"
-        on="hover"
-        closeOnDocumentClick
-        mouseLeaveDelay={150}
-        mouseEnterDelay={50}
-        contentStyle={{ padding: '0px', border: 'none', background: 'transparent' }}
-        arrow={false}
-      >
-        <div className="menu-subMenu">
-          <div className="menu-item"> команда 1</div>
-          <div className="menu-item"> команда 2</div>
-          <div className="menu-item"> команда 3</div>
-        </div>
-
+        {AddSubMenu({ containSubMenu: names })}
       </Popup>
     </div>
   );

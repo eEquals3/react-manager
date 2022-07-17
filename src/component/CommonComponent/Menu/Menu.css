@@ -37,7 +37,7 @@
 
 .menu-subMenuButtons{
     height: max-content;
-    display: flex;
+/*    display: flex;*/
     background: transparent;
     border: none;
     padding: 1vh;

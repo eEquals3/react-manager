@@ -1,5 +1,5 @@
 import React, {
-  memo, useCallback, useState,
+  memo, ReactElement, useCallback, useState,
 } from 'react';
 import Popup from 'reactjs-popup';
 import './Modal.css';
@@ -19,7 +19,7 @@ function Modal({
   triggerButtonStyle,
   modalName,
   filling,
-}: Props) {
+}: Props):ReactElement {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = useCallback(() => {
     setIsOpen(false);
