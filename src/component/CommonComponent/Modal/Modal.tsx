@@ -1,5 +1,5 @@
 import React, {
-  memo, ReactElement, useCallback, useState,
+  memo, ReactElement, useCallback, /* useEffect, */ useMemo, useState,
 } from 'react';
 import Popup from 'reactjs-popup';
 import './Modal.css';
@@ -9,7 +9,9 @@ interface Props {
   triggerButtonName: string;
   triggerButtonStyle: string;
   modalName:string
-  filling: ()=>void;
+  RenderContent: ReactElement;
+  RenderActions: ReactElement;
+/*  someFn: ()=>void; */
 }
 
 const contentStyle = { background: 'transparent', border: 'none' };
@@ -18,14 +20,40 @@ function Modal({
   triggerButtonName,
   triggerButtonStyle,
   modalName,
-  filling,
+  RenderContent,
+  RenderActions,
+/*  someFn, */
 }: Props):ReactElement {
   const [isOpen, setIsOpen] = useState(false);
   const closeModal = useCallback(() => {
     setIsOpen(false);
-    filling();
-    console.log('ololo');
+    // fillingContent();
+    // fillingActions();
   }, []);
+  /*
+
+  const [st, setSt] = useState<string>('');
+*/
+
+  /*
+  useEffect(() => {
+    someFn(st);
+  }, [someFn, st]);
+*/
+
+  const renderSomeComp = useMemo(() => (
+    <button
+      type="button"
+      className="menu-subMenuButtons"
+      onClick={() => {
+        /* setSt('kjfhukdhg'); */
+        /* someFn('kjfhukdhg'); */
+      }}
+    >
+      {' '}
+      a
+    </button>
+  ), [1, 2, 3, 4, 5]);
 
   return (
     <>
@@ -58,27 +86,11 @@ function Modal({
             {modalName}
           </div>
           <div className="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
-            Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
-            delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
-            commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
-            explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+            { RenderContent }
+            { renderSomeComp }
           </div>
           <div className="actions">
-            <Popup
-              trigger={<button type="button" className="button"> Trigger </button>}
-              position="top center"
-              nested
-            >
-              <span>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-                magni omnis delectus nemo, maxime molestiae dolorem numquam
-                mollitia, voluptate ea, accusamus excepturi deleniti ratione
-                sapiente! Laudantium, aperiam doloribus. Odit, aut.
-              </span>
-            </Popup>
+            { RenderActions }
             <button
               type="button"
               className="button"

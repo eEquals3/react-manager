@@ -7,6 +7,7 @@ import './component/CommonComponent/Button/Buttons.css';
 import './component/MainScreenComponent/LeftPanel.css';
 import Modal from './component/CommonComponent/Modal/Modal';
 import Menu from './component/CommonComponent/Menu/Menu';
+import { LoginAction, LoginContent } from './Utils/UtilsForLogin';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
             triggerButtonName="Login"
             triggerButtonStyle="ButtonLoginStyle"
             modalName="Login"
-            filling={() => { console.log('ololo'); }}
+            RenderActions={<LoginAction />}
+            RenderContent={<LoginContent />}
           />
         </div>
       </view>
