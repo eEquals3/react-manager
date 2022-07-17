@@ -21,10 +21,10 @@ export function LoginModal() {
 
   const LoginContent = useMemo(() => (
     <>
-      <label htmlFor="Name">
-        Username
+      <label htmlFor="Psw">
+        Password
         <input
-          type="text"
+          type="name"
           onChange={(loginChange) => { setStLogin(loginChange.target.value); }}
           value={stLogin}
         />
