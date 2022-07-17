@@ -35,7 +35,7 @@
         "quotes": ["error"],
         "react/require-default-props": "warn",
         "no-console": "off",
-//        "linebreak-style": ["error", "unix"],
+        "linebreak-style": ["error", "unix"],
         "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
         "import/extensions": [
             "error",
