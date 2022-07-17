@@ -6,7 +6,7 @@ function Menu() {
   return (
     <div className="menu">
       <Popup
-        trigger={<div className="menu-mainManu"> Список команд  </div>}
+        trigger={<div className="menu-mainMenu"> Список команд  </div>}
         position="right top"
         on="hover"
         closeOnDocumentClick
@@ -16,13 +16,13 @@ function Menu() {
         arrow={false}
       >
         <div className="menu-subMenu">
-          <button type="button" className="menu-item"> команда 1</button>
-          <button type="button" className="menu-item"> команда 2</button>
-          <button type="button" className="menu-item"> команда 3</button>
+          <button type="button" className="menu-subMenuButtons"> команда 1</button>
+          <button type="button" className="menu-subMenuButtons"> команда 2</button>
+          <button type="button" className="menu-subMenuButtons"> команда 3</button>
         </div>
       </Popup>
       <Popup
-        trigger={<div className="menu-mainManu"> Статистика </div>}
+        trigger={<div className="menu-mainMenu"> Статистика </div>}
         position="right center"
         on="hover"
         closeOnDocumentClick

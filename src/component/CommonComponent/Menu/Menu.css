@@ -16,7 +16,7 @@
     background: rgba(255, 255, 255, 0);
 }
 
-.menu-mainManu{
+.menu-mainMenu{
     text-align: center;
     left: 0;
     cursor: pointer;
@@ -25,15 +25,30 @@
 }
 
 .menu-subMenu{
-    width: 10vw;
-    height: 6vh;
+    width: available;
+    height: available;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     background: linear-gradient(rgba(4, 185, 187, 0.4), rgba(145, 0, 229, 0.51));
     border-radius: 10px;
     color: white;
 }
+
+.menu-subMenuButtons{
+    height: max-content;
+    display: flex;
+    background: transparent;
+    border: none;
+    padding: 1vh;
+    text-align: center;
+}
+
+.menu-subMenuButtons:hover{
+    background: rgba(0,0,0, 0.2);
+    border-radius: 10px;
+    color: #051f7e;
+ }
 
 .menu-item {
     text-align: center;
