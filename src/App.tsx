@@ -25,12 +25,12 @@ function App() {
       </view>
       <header className="App-MainContent">
         <view className="LeftPanelStyle">
+          <img src={logo} className="App-logo" alt="logo" />
           <Menu name="Список команд" containSubMenu={['команда 1', 'команда 2', 'команда 3']} />
           <Menu name="Статистика" containSubMenu={['команда 1', 'команда 2', 'команда 3']} />
         </view>
 
         <view className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit
             <code>src/App.tsx</code>
