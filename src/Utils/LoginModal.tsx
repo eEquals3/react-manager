@@ -18,27 +18,32 @@ export function LoginModal() {
       <button type="button" className="loginButtons"> регистрация</button>
     </>
   ), [clickLoginButton]);
-
+  // @ts-ignore
   const LoginContent = useMemo(() => (
     <>
-      <label htmlFor="Psw">
-        Password
+      <label htmlFor="Name" style={{ textAlign: 'center', display: 'block' }}>
+        {/* Username */}
         <input
-          type="name"
+          type="text"
           onChange={(loginChange) => { setStLogin(loginChange.target.value); }}
           value={stLogin}
+          placeholder="Username"
+          style={{ borderRadius: '10px', textAlign: 'center' }}
         />
       </label>
       <p>
-        <label htmlFor="Psw">
-          Password
+        <label htmlFor="Psw" style={{ textAlign: 'center', display: 'block' }}>
+          {/* Password */}
           <input
             type="password"
             onChange={(passwordChange) => { setStPassword(passwordChange.target.value); }}
             value={stPassword}
+            placeholder="Password"
+            style={{ borderRadius: '10px', textAlign: 'center' }}
           />
         </label>
       </p>
+
     </>
   ), [stPassword, stLogin]);
 

@@ -15,7 +15,7 @@ interface Props {
 /*  someFn: ()=>void; */
 }
 
-const contentStyle = { background: 'transparent', border: 'none' };
+const contentStyle = { background: 'transparent', border: 'none', width: '25vw' };
 
 function Modal({
   triggerButtonName = '123',

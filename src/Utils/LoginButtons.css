@@ -1,4 +1,5 @@
 .loginButtons{
+    /*display: block;*/
     height: max-content;
     /* display: flex; */
     background: transparent;

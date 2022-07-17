@@ -1,3 +1,9 @@
+@font-face {
+    font-family: adobe-clean;
+    src: local("AdobeClean-Light"),
+    url(AdobeClean-Light.ttf);
+}
+
 .ButtonLoginStyle {
     display: flex;
     height: 4vh;
@@ -21,7 +27,7 @@
     padding: 10px 10px;
     margin: 10px 0px;
     border: none;
-    font-family: "Times New Roman", Georgia, Serif;
+    font-family: adobe-clean, sans-serif;
     font-size: 20px;
 }
 
