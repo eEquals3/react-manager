@@ -8,24 +8,25 @@
     font-family: adobe-clean, sans-serif;
     font-size: 12px;
     border-radius: 13px;
-    background: yellow;
+    background: radial-gradient(rgba(4, 96, 187, 1), rgba(95, 4, 150, 0.8));
     /*width: 20vw;*/
 }
 .modal > .header {
     border-bottom: 1px solid gray;
     font-size: 18px;
     text-align: center;
-    padding: 5px;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
 }
 .modal > .content {
     /*width: 100%;*/
-    padding: 10px 5px;
+    padding: 2vh 0vw;
     border-bottom: 1px solid gray;
 }
 .modal > .actions {
     flex-direction: row;
     width: 100%;
-    padding: 10px 5px;
+    padding: 2vh 0vw;
     margin: auto;
     text-align: center;
 }

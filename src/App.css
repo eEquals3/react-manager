@@ -1,6 +1,6 @@
 .App {
   height: 100vh;
-  background: linear-gradient(#e66465, #9198e5);
+  background: radial-gradient(rgb(10, 4, 187), rgba(114, 4, 150, 0.8));
 }
 
 .App-MainContent {

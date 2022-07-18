@@ -28,7 +28,7 @@ export default function LoginModal() {
           onChange={(loginChange) => { setStLogin(loginChange.target.value); }}
           value={stLogin}
           placeholder="Username"
-          style={{ borderRadius: '10px', textAlign: 'center' }}
+          style={{ borderRadius: '10px', textAlign: 'center', height: '2vw' }}
         />
       </label>
       <p>
@@ -39,7 +39,7 @@ export default function LoginModal() {
             onChange={(passwordChange) => { setStPassword(passwordChange.target.value); }}
             value={stPassword}
             placeholder="Password"
-            style={{ borderRadius: '10px', textAlign: 'center' }}
+            style={{ borderRadius: '10px', textAlign: 'center', height: '2vw' }}
           />
         </label>
       </p>
