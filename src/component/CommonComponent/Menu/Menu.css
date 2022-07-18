@@ -45,6 +45,7 @@
     border: none;
     padding: 1vh;
     text-align: center;
+    outline:0;
 }
 
 .menu-subMenuButtons:hover{
