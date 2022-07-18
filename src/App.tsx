@@ -22,6 +22,7 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           <Menu name="Список команд" containSubMenu={['команда 1', 'команда 2', 'команда 3']} />
           <Menu name="Статистика" containSubMenu={['команда 1', 'команда 2', 'команда 3']} />
+          <Menu name="Список задач" containSubMenu={['задача 1', 'задача 2', 'задача 3']} />
         </view>
 
         <view className="App-header">

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback, useMemo } from 'react';
 import Popup from 'reactjs-popup';
 import './Menu.css';
 
@@ -7,34 +7,31 @@ interface Props{
     containSubMenu: string[];
 }
 
-interface PropsAddSubMenu{
-    containSubMenu: string[];
-}
-
-interface PropsAddButton{
-    name: string
-}
-
-function AddButton({ name }: PropsAddButton):ReactElement {
-  return (
-    <button type="button" className="menu-subMenuButtons">
-      {' '}
-      { name }
-      {' '}
-    </button>
-  );
-}
-
-function AddSubMenu({ containSubMenu }:PropsAddSubMenu):ReactElement {
-  return (
-    <div className="menu-subMenu">
-      { containSubMenu.map((value) => AddButton({ name: value }))}
-    </div>
-  );
-}
-
 function Menu({ name, containSubMenu }:Props):ReactElement {
-  const names = containSubMenu;
+  const AddButton = useCallback((btnName: string) => (
+    <button
+      type="button"
+      className="menu-subMenuButtons"
+      onClick={() => (console.log(btnName))}
+    >
+      {btnName}
+    </button>
+  ), []);
+
+  const AddSubMenu = useMemo(() => (
+    <div className="menu-subMenu">
+      {containSubMenu.map((it) => (AddButton(it)))}
+
+      <button
+        type="button"
+        className="menu-subMenuButtons"
+        onClick={() => (console.log('+'))}
+      >
+        +
+      </button>
+    </div>
+  ), [containSubMenu]);
+
   return (
     <div className="menu">
       <Popup
@@ -53,7 +50,7 @@ function Menu({ name, containSubMenu }:Props):ReactElement {
         contentStyle={{ padding: '0px', border: 'none', background: 'transparent' }}
         arrow={false}
       >
-        {AddSubMenu({ containSubMenu: names })}
+        {AddSubMenu}
       </Popup>
     </div>
   );
