@@ -7,7 +7,7 @@ import './component/CommonComponent/Button/Buttons.css';
 import './component/MainScreenComponent/LeftPanel.css';
 /* import Modal from './component/CommonComponent/Modal/Modal'; */
 import Menu from './component/CommonComponent/Menu/Menu';
-import { LoginModal } from './Utils/LoginModal';
+import LoginModal from './Utils/LoginModal';
 
 function App() {
   return (

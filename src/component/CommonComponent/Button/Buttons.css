@@ -23,12 +23,13 @@
 
 .ButtonStyle {
     background-color: transparent;
-    color: white;
-    padding: 10px 10px;
-    margin: 10px 0px;
+    color: black;
     border: none;
     font-family: adobe-clean, sans-serif;
     font-size: 20px;
+    height: max-content;
+    padding: 1vh;
+    text-align: center;
 }
 
 .ButtonStyle:hover{

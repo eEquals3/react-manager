@@ -1,5 +1,6 @@
 import React, { ReactElement, useCallback, useMemo } from 'react';
 import Popup from 'reactjs-popup';
+import AddButton from './AddButton';
 import './Menu.css';
 
 interface Props{
@@ -8,7 +9,7 @@ interface Props{
 }
 
 function Menu({ name, containSubMenu }:Props):ReactElement {
-  const AddButton = useCallback((btnName: string) => (
+  const AddSubMenuButton = useCallback((btnName: string) => (
     <button
       type="button"
       className="menu-subMenuButtons"
@@ -20,15 +21,8 @@ function Menu({ name, containSubMenu }:Props):ReactElement {
 
   const AddSubMenu = useMemo(() => (
     <div className="menu-subMenu">
-      {containSubMenu.map((it) => (AddButton(it)))}
-
-      <button
-        type="button"
-        className="menu-subMenuButtons"
-        onClick={() => (console.log('+'))}
-      >
-        +
-      </button>
+      {containSubMenu.map((it) => (AddSubMenuButton(it)))}
+      <AddButton name={name} />
     </div>
   ), [containSubMenu]);
 
@@ -49,10 +43,12 @@ function Menu({ name, containSubMenu }:Props):ReactElement {
         mouseEnterDelay={50}
         contentStyle={{ padding: '0px', border: 'none', background: 'transparent' }}
         arrow={false}
+        nested
       >
         {AddSubMenu}
       </Popup>
     </div>
   );
 }
+
 export default Menu;

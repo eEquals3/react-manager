@@ -11,7 +11,6 @@ interface Props {
   modalName?:string
   renderContent: ReactElement;
   renderActions?: ReactElement;
-  isAlert?:boolean;
 /*  someFn: ()=>void; */
 }
 
@@ -23,10 +22,9 @@ function Modal({
   modalName = 'Alert',
   renderContent = <> A </>,
   renderActions = <> A </>,
-  isAlert = false,
 /*  someFn, */
 }: Props):ReactElement {
-  const [isOpen, setIsOpen] = useState<boolean>(isAlert);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeModal = useCallback(() => {
     setIsOpen(false);
     // fillingContent();

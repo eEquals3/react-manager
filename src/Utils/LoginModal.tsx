@@ -1,10 +1,10 @@
 import React, {
-  useState, memo, useCallback, useMemo,
+  useState, useCallback, useMemo,
 } from 'react';
 import './LoginButtons.css';
 import Modal from '../component/CommonComponent/Modal/Modal';
 
-export function LoginModal() {
+export default function LoginModal() {
   const [stLogin, setStLogin] = useState<string>('');
   const [stPassword, setStPassword] = useState<string>('');
 
@@ -57,5 +57,3 @@ export function LoginModal() {
     />
   );
 }
-
-export default memo(LoginModal);
