@@ -23,7 +23,7 @@
 }
 
 .ButtonLoginStyle:hover {
-    background: rgba(0,0,0, 0.2);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
     border-radius: 10px;
     color: #0993bd;
     text-shadow: 0px 2px 3px rgb(9, 147, 189, 0.4);
@@ -41,7 +41,7 @@
 }
 
 .ButtonStyle:hover{
-    background: rgba(0,0,0, 0.2);
+    background: radial-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
     border-radius: 10px;
     color: #051f7e;
 }

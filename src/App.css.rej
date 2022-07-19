@@ -1,0 +1,10 @@
+diff a/src/App.css b/src/App.css	(rejected hunks)
+@@ -23,7 +23,7 @@
+ }
+ 
+ .App-header {
+-  width: calc(79vw - 2px);
++  width: 79vw;
+   background-color: #424449;
+   display: flex;
+   flex-direction: column;

@@ -11,11 +11,11 @@ export default function AddButton({ name }:Prop) {
   const editName = useCallback((nameToEdit:string) => {
     switch (nameToEdit) {
       case 'Список команд':
-        return 'команда';
+        return 'Команда';
       case 'Статистика':
-        return 'команда';
+        return 'Команда';
       case 'Список задач':
-        return 'задача';
+        return 'Задача';
       default:
         return '';
     }
@@ -34,7 +34,7 @@ export default function AddButton({ name }:Prop) {
         onChange={(loginChange) => { setState(loginChange.target.value); }}
         value={state}
         placeholder={editName(name)}
-        style={{ borderRadius: '10px', textAlign: 'center' }}
+        style={{ borderRadius: '10px', textAlign: 'center', height: '2vw' }}
       />
     </label>
   ), [name, state]);

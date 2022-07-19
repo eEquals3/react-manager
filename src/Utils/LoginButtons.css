@@ -10,7 +10,7 @@
 
 .loginButtons:hover{
     color: #0993bd;
-    background: rgba(0,0,0, 0.2);
+    background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
     border-radius: 15px;
     text-shadow: 0px 2px 3px rgb(9, 147, 189, 0.4);
 }
