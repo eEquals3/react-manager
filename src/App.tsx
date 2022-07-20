@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import 'reactjs-popup/dist/index.css';
 import logo from './logo.svg';
 import './App.css';
@@ -14,8 +14,22 @@ import useModalContent from './component/CommonComponent/Menu/useModalContent';
 function App() {
   const modalRef = useRef<ModalRefHandle>(null);
   const [commandState, setCommSt] = useState<string>('команда 1');
+  const [addButtonModalName, setAddButtonModalName] = useState<string>('Список команд');
+  const {
+    buttonModalName,
+    renderText,
+    renderCreateButton,
+  } = useModalContent({ name: addButtonModalName });
 
-  const { renderText, renderCreateButton } = useModalContent({ name: '123' });
+  const createAddModal = useMemo(() => (
+    <Modal
+      ref={modalRef}
+      modalName={`Новая ${buttonModalName(addButtonModalName)}`}
+      triggerButtonName={null}
+      renderContent={renderText}
+      renderActions={renderCreateButton}
+    />
+  ), [renderText, renderCreateButton]);
 
   return (
     <div className="App">
@@ -36,6 +50,7 @@ function App() {
             }}
             onPlusBtnPressed={() => {
               modalRef.current?.open();
+              setAddButtonModalName('Список команд');
             }}
           />
           <Menu
@@ -47,6 +62,7 @@ function App() {
             }}
             onPlusBtnPressed={() => {
               modalRef.current?.open();
+              setAddButtonModalName('Статистика');
             }}
           />
           <Menu
@@ -57,16 +73,11 @@ function App() {
             }}
             onPlusBtnPressed={() => {
               modalRef.current?.open();
+              setAddButtonModalName('Список задач');
             }}
           />
         </view>
-        <Modal
-          ref={modalRef}
-          // modalName={`Новая ${editName(name)}`}
-          triggerButtonName={null}
-          renderContent={renderText}
-          renderActions={renderCreateButton}
-        />
+        {createAddModal}
 
         <view className="App-header">
           <CommandView name={commandState} />

@@ -7,21 +7,21 @@ interface Prop{
 export default function useModalContent({ name }:Prop) {
   const [state, setState] = useState<string>('');
 
-  const editName = useCallback((nameToEdit:string) => {
+  const buttonModalName = useCallback((nameToEdit:string) => {
     switch (nameToEdit) {
       case 'Список команд':
-        return 'Команда';
+        return 'команда';
       case 'Статистика':
-        return 'Команда';
+        return 'команда';
       case 'Список задач':
-        return 'Задача';
+        return 'задача';
       default:
-        return '';
+        return name.toLowerCase();
     }
   }, []);
 
   const clickAddButton = useCallback(() => {
-    console.log(state.length > 3 ? `ok, new ${editName(name)} name ${state}` : 'nope');
+    console.log(state.length > 3 ? `ok, new ${buttonModalName(name)} name ${state}` : 'nope');
   }, [state, name]);
 
   /* {`Введите имя ${name}`} */
@@ -32,7 +32,7 @@ export default function useModalContent({ name }:Prop) {
         type="text"
         onChange={(loginChange) => { setState(loginChange.target.value); }}
         value={state}
-        placeholder={editName(name)}
+        placeholder={buttonModalName(name)}
         style={{ borderRadius: '10px', textAlign: 'center', height: '2vw' }}
       />
     </label>
@@ -49,6 +49,7 @@ export default function useModalContent({ name }:Prop) {
   ), [clickAddButton]);
 
   return {
+    buttonModalName,
     renderCreateButton,
     renderText,
   } as const;
