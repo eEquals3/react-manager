@@ -1,0 +1,11 @@
+.viewHeader{
+    width: 79vw;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    border-bottom: 2px solid black;
+    text-align: center;
+}

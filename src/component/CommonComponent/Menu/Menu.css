@@ -23,7 +23,7 @@
     cursor: pointer;
     padding-top: 2vh;
     padding-bottom: 2vh;
-    height: 5vh;
+    height: min-content;
 }
 
 .menu-subMenu{

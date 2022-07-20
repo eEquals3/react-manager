@@ -1,12 +1,12 @@
 import React, {
-  memo, ReactElement, useCallback, /* useEffect, */ useMemo, useState,
+  forwardRef, ReactElement, useCallback, useImperativeHandle, /* useEffect, */ useMemo, useState,
 } from 'react';
 import Popup from 'reactjs-popup';
 import './Modal.css';
 import '../Button/Buttons.css';
 
 interface Props {
-  triggerButtonName?: string;
+  triggerButtonName: string | null;
   triggerButtonStyle?: string;
   modalName?:string
   renderContent: ReactElement;
@@ -14,31 +14,35 @@ interface Props {
 /*  someFn: ()=>void; */
 }
 
+export interface ModalRefHandle {
+  open: () => void,
+  close: () => void,
+}
+
 const contentStyle = { background: 'transparent', border: 'none', width: '25vw' };
 
-function Modal({
-  triggerButtonName = '123',
+// eslint-disable-next-line react/function-component-definition
+const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = ({
+  triggerButtonName,
   triggerButtonStyle = '123',
   modalName = 'Alert',
   renderContent = <> A </>,
   renderActions = <> A </>,
-/*  someFn, */
-}: Props):ReactElement {
+  /*  someFn, */
+}: Props, ref) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeModal = useCallback(() => {
     setIsOpen(false);
-    // fillingContent();
-    // fillingActions();
   }, []);
-  /*
-  const [st, setSt] = useState<string>('');
-*/
 
-  /*
-  useEffect(() => {
-    someFn(st);
-  }, [someFn, st]);
-*/
+  useImperativeHandle(ref, () => ({
+    open() {
+      setIsOpen(true);
+    },
+    close() {
+      setIsOpen(false);
+    },
+  }));
 
   const renderModalButton = useMemo(() => (
     <button
@@ -75,7 +79,7 @@ function Modal({
 
   return (
     <>
-      {renderModalButton}
+      {triggerButtonName !== null && renderModalButton}
 
       <Popup
         open={isOpen}
@@ -88,6 +92,6 @@ function Modal({
       </Popup>
     </>
   );
-}
+};
 
-export default memo(Modal);
+export default forwardRef(Modal);

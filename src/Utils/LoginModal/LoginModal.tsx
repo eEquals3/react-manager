@@ -2,7 +2,7 @@ import React, {
   useState, useCallback, useMemo,
 } from 'react';
 import './LoginButtons.css';
-import Modal from '../component/CommonComponent/Modal/Modal';
+import Modal from '../../component/CommonComponent/Modal/Modal';
 
 export default function LoginModal() {
   const [stLogin, setStLogin] = useState<string>('');

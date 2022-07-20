@@ -1,11 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import Modal from '../Modal/Modal';
 
 interface Prop{
     name: string;
 }
 
-export default function AddButton({ name }:Prop) {
+export default function useModalContent({ name }:Prop) {
   const [state, setState] = useState<string>('');
 
   const editName = useCallback((nameToEdit:string) => {
@@ -21,12 +20,12 @@ export default function AddButton({ name }:Prop) {
     }
   }, []);
 
-  const clickAddButton = useCallback(() => (
-    console.log(state.length > 3 ? `ok, new ${editName(name)} name ${state}` : 'nope')
-  ), [state]);
+  const clickAddButton = useCallback(() => {
+    console.log(state.length > 3 ? `ok, new ${editName(name)} name ${state}` : 'nope');
+  }, [state, name]);
 
   /* {`Введите имя ${name}`} */
-  const Text = useMemo(() => (
+  const renderText = useMemo(() => (
     <label htmlFor="Name" style={{ textAlign: 'center', display: 'block' }}>
       {}
       <input
@@ -39,7 +38,7 @@ export default function AddButton({ name }:Prop) {
     </label>
   ), [name, state]);
 
-  const CreateButton = useMemo(() => (
+  const renderCreateButton = useMemo(() => (
     <button
       type="button"
       className="ButtonStyle"
@@ -48,13 +47,9 @@ export default function AddButton({ name }:Prop) {
       добавить
     </button>
   ), [clickAddButton]);
-  return (
-    <Modal
-      modalName={`Новая ${editName(name)}`}
-      triggerButtonName="+"
-      triggerButtonStyle="menu-subMenuButtons"
-      renderContent={Text}
-      renderActions={CreateButton}
-    />
-  );
+
+  return {
+    renderCreateButton,
+    renderText,
+  } as const;
 }
