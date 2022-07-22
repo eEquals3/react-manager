@@ -1,5 +1,12 @@
 import React, { useMemo, useRef, useState } from 'react';
 import 'reactjs-popup/dist/index.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {
+  // eslint-disable-next-line no-unused-vars
+  BrowserRouter as Router,
+  // eslint-disable-next-line no-unused-vars
+  Route, Routes,
+} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import './component/MainScreenComponent/UpperPanel.css';
@@ -10,6 +17,9 @@ import LoginModal from './Utils/LoginModal/LoginModal';
 import CommandView from './Utils/OpenViewFunk/OpenCommandView';
 import Modal, { ModalRefHandle } from './component/CommonComponent/Modal/Modal';
 import useModalContent from './component/CommonComponent/Menu/useModalContent';
+// eslint-disable-next-line no-unused-vars
+import NotesListPage from './test';
+// eslint-disable-next-line import/no-extraneous-dependencies
 
 function App() {
   const modalRef = useRef<ModalRefHandle>(null);
@@ -43,7 +53,7 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           <Menu
             name="Список команд"
-            containSubMenu={['команда 1', 'команда 2', 'команда 3']}
+            containSubMenu={['команда 1', 'команда 2', 'команда 3', 'команда 4']}
             onCommandChange={(commandId) => {
               console.log('commandId', commandId);
               setCommSt(commandId);
@@ -81,6 +91,13 @@ function App() {
 
         <view className="App-header">
           <CommandView name={commandState} />
+          {/* <h3> */}
+          {/*   <Router> */}
+          {/*     <Routes> */}
+          {/*       <Route path="/" element={<NotesListPage />} /> */}
+          {/*     </Routes> */}
+          {/*   </Router> */}
+          {/* </h3> */}
         </view>
       </view>
     </div>
