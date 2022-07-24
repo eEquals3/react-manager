@@ -45,7 +45,12 @@ const App = () => {
           <img src={logo} className="App-logo" alt="logo" />
           <Menu
             name="Список команд"
-            containSubMenu={["команда 1", "команда 2", "команда 3"]}
+            containSubMenu={[
+              "команда 1",
+              "команда 2",
+              "команда 3",
+              "команда 4",
+            ]}
             onCommandChange={(commandId) => {
               console.log("commandId", commandId);
               setCommSt(commandId);
@@ -83,6 +88,13 @@ const App = () => {
 
         <view className="App-header">
           <CommandView name={commandState} />
+          {/* <h3> */}
+          {/*   <Router> */}
+          {/*     <Routes> */}
+          {/*       <Route path="/" element={<NotesListPage />} /> */}
+          {/*     </Routes> */}
+          {/*   </Router> */}
+          {/* </h3> */}
         </view>
       </view>
     </div>
