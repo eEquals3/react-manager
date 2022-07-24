@@ -1,5 +1,5 @@
 import React from "react";
-import "./InputField.css";
+import "./InputField.scss";
 
 interface Props {
   name: string;

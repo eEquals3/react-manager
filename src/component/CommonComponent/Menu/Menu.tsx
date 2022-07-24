@@ -3,7 +3,7 @@ import Popup from "reactjs-popup";
 // eslint-disable-next-line import/no-unresolved
 import { PopupActions } from "reactjs-popup/dist/types";
 /* import AddButton from './AddButton'; */
-import "./Menu.css";
+import "./Menu.scss";
 
 interface Props {
   name: string;

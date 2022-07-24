@@ -1,8 +1,11 @@
+@import "src/utils/commonStyle.scss";
+
 @font-face {
     font-family: adobe-clean;
     src: local("AdobeClean-Light"),
         url(AdobeClean-Light.ttf);
 }
+
 .menu {
     /*padding: 50px;*/
     position: relative;
@@ -10,10 +13,10 @@
     flex-direction: column;
     align-items: center;
     font-family: adobe-clean, sans-serif;
-    font-size: 2.2vw;
+    font-size: $fontSizeBig;
     background: rgba(255, 255, 255, 0);
-    color: black;
-    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.4);
+    color: $textColorBlack;
+    text-shadow: 0px 2px 3px $textShadow;
 }
 
 .menu-mainMenu{
@@ -32,7 +35,7 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    background: linear-gradient(rgba(4, 185, 187, 0.22), rgba(145, 0, 229, 0.75));
+    background: $backgroundLinearGradient;
     border: none;
     border-radius: 10px;
 }
@@ -45,13 +48,14 @@
     padding: 1vh;
     text-align: center;
     outline:0;
+    font-size: $fontSizeMed;
 }
 
 .menu-subMenuButtons:hover{
-    background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    background: $radialShadowGradient;
     border-radius: 10px;
-    color: #0993bd;
-    text-shadow: 0px 2px 3px rgb(9, 147, 189, 0.4);
+    color: $textColorHover;
+    text-shadow: 0px 2px 3px $textShadowHover;
  }
 
 .menu-item {
@@ -60,12 +64,12 @@
     cursor: pointer;
     padding: 5px;
     /*height: 28px;*/
-    font-size: 0.9vw;
+    font-size: $fontSizeMed;
 }
 
 .menu:hover {
-    color: #0993bd;
-    background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    color: $textColorHover;
+    background: $radialShadowGradient;
     border-radius: 15px;
-    text-shadow: 0px 2px 3px rgb(9, 147, 189, 0.4);
+    text-shadow: 0px 2px 3px $textShadowHover;
 }

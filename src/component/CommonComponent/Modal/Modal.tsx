@@ -7,8 +7,8 @@ import React, {
   useState,
 } from "react";
 import Popup from "reactjs-popup";
-import "./Modal.css";
-import "../Button/Buttons.css";
+import "./Modal.scss";
+import "../Button/Buttons.scss";
 
 interface Props {
   triggerButtonName: string | null;

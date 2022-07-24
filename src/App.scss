@@ -1,6 +1,8 @@
+@import "src/utils/commonStyle.scss";
+
 .App {
   height: 100vh;
-  background: radial-gradient(rgb(10, 4, 187), rgba(114, 4, 150, 0.8));
+  background: $backgroundRadialGradient;
 }
 
 .App-MainContent {
@@ -24,19 +26,19 @@
 
 .App-header {
   width: 79vw;
-  background-color: #cdd0d0;
+  background-color: $backgroundGray;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
-  border: 2px solid rgba(0, 0, 0, 1);
+  color: $textColorWhite;
+  border: 2px $borderColor;
   border-radius: 10px;
 }
 
 .App-link {
-  color: #61dafb;
+  color: $textColorHover;
 }
 
 @keyframes App-logo-spin {

@@ -1,13 +1,13 @@
 import React, { useMemo, useRef, useState } from "react";
 import "reactjs-popup/dist/index.css";
 import logo from "./logo.svg";
-import "./App.css";
-import "./component/MainScreenComponent/UpperPanel.css";
-import "./component/CommonComponent/Button/Buttons.css";
-import "./component/MainScreenComponent/LeftPanel.css";
+import "./App.scss";
+import "./component/MainScreenComponent/UpperPanel.scss";
+import "./component/CommonComponent/Button/Buttons.scss";
+import "./component/MainScreenComponent/LeftPanel.scss";
 import Menu from "./component/CommonComponent/Menu/Menu";
-import LoginModal from "./Utils/LoginModal/LoginModal";
-import CommandView from "./Utils/OpenViewFunk/OpenCommandView";
+import LoginModal from "./component/MainScreenComponent/loginModal/LoginModal";
+import { CommandView } from "./component/MainScreenComponent/openViewFunk/OpenCommandView";
 import Modal, { ModalRefHandle } from "./component/CommonComponent/Modal/Modal";
 import useModalContent from "./component/CommonComponent/Menu/useModalContent";
 
