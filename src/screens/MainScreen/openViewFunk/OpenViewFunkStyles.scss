@@ -1,7 +1,7 @@
-@import "/src/utils/commonStyle.scss";
+@import "../../../utils/commonStyle";
 
 .viewHeader{
-    width: 79vw;
+    width: 100%;
     height: min-content;
     display: flex;
     flex-direction: column;

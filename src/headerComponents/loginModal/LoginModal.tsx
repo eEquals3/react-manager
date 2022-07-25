@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo, memo } from "react";
 import "./LoginButtons.scss";
-import Modal from "../../CommonComponent/Modal/Modal";
+import Modal from "../../component/CommonComponent/Modal/Modal";
 
 const LoginModal = () => {
   const [stLogin, setStLogin] = useState<string>("");

@@ -1,0 +1,52 @@
+@import "../../utils/commonStyle";
+
+.App {
+  height: 100vh;
+  background: $backgroundRadialGradient;
+}
+
+.App-MainContent {
+  height: 93vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex
+}
+
+.App-logo {
+  width: auto;
+  height: 20vh;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  width: 78%;
+  background-color: $backgroundGray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: $textColorWhite;
+  border: 2px $borderColor;
+  border-radius: 10px;
+}
+
+.App-link {
+  color: $textColorHover;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
