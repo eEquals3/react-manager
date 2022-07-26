@@ -1,14 +1,17 @@
 @import "../utils/commonStyle";
 
 .UpperPanelStyle {
-    background: rgba(0, 0, 75, 0);
+    background: $backgroundLinearGradient;
     /*background-color: #761c1c;*/
-    height: max-content;
+/*  margin-bottom: 1vh;
+    margin-top: 1vh;*/
+    height: 8vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: flex-end;
-    justify-content: normal;
+    justify-content: flex-start;
     padding-right: 20px;
+    flex-wrap: wrap;
     /*margin-right: 0.5vw;
     margin-left: 0.5vw;
     border: 2px solid rgba(0, 0, 0, 1);

@@ -6,7 +6,7 @@ import "../../headerComponents/UpperPanel.scss";
 import "./LeftPanel.scss";
 import "../../component/CommonComponent/Button/Buttons.scss";
 import Menu from "../../component/CommonComponent/Menu/Menu";
-import LoginModal from "../../headerComponents/loginModal/LoginModal";
+/* import LoginModal from "../../headerComponents/loginModal/LoginModal"; */
 import { CommandView } from "./openViewFunk/OpenCommandView";
 import Modal, {
   ModalRefHandle,
@@ -36,15 +36,15 @@ const MainScreen = () => {
   );
 
   return (
-    <div className="App">
-      <view className="UpperPanelStyle">
+    <div className="MainScreen">
+      {/* <view className="UpperPanelStyle">
         <div style={{ background: "rgba(0, 0, 0, 0)" }}>
           <LoginModal />
         </div>
-      </view>
-      <view className="App-MainContent">
+      </view> */}
+      <view className="MainScreen-MainContent">
         <view className="LeftPanelStyle">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="MainScreen-logo" alt="logo" />
           <Menu
             name="Список команд"
             containSubMenu={[
@@ -88,7 +88,7 @@ const MainScreen = () => {
         </view>
         {createAddModal}
 
-        <view className="App-header">
+        <view className="MainScreen-header">
           <CommandView name={commandState} />
           {/* <h3> */}
           {/*   <Router> */}

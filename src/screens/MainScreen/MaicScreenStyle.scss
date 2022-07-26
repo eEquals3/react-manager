@@ -1,18 +1,20 @@
 @import "../../utils/commonStyle";
 
-.App {
-  height: 100vh;
+.MainScreen {
+  justify-content: center;
+  height: 92vh;
   background: $backgroundRadialGradient;
 }
 
-.App-MainContent {
-  height: 93vh;
+.MainScreen-MainContent {
+  height: 92vh;
   flex-direction: row;
   flex-wrap: wrap;
-  display: flex
+  display: flex;
+  align-content: stretch;
 }
 
-.App-logo {
+.MainScreen-logo {
   width: auto;
   height: 20vh;
   pointer-events: none;
@@ -24,8 +26,8 @@
   }
 }
 
-.App-header {
-  width: 78%;
+.MainScreen-header {
+  width: 79%;
   background-color: $backgroundGray;
   display: flex;
   flex-direction: column;
@@ -35,10 +37,6 @@
   color: $textColorWhite;
   border: 2px $borderColor;
   border-radius: 10px;
-}
-
-.App-link {
-  color: $textColorHover;
 }
 
 @keyframes App-logo-spin {
