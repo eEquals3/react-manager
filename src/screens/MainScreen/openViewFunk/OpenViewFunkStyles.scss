@@ -1,12 +1,14 @@
+@import "../../../utils/commonStyle";
+
 .viewHeader{
-    width: 79vw;
+    width: 100%;
     height: min-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 2vh;
     padding-top: 2vh;
-    border-bottom: 2px solid black;
+    border-bottom: 2px $borderColor;
     text-align: center;
-    color: #363535;
+    color: $textColorBlack;
 }

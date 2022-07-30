@@ -1,22 +1,17 @@
-import React from 'react';
-import './InputField.css';
+import React from "react";
+import "./InputField.scss";
 
-interface Props{
-    name:string
+interface Props {
+  name: string;
 }
 
-export default function InputField({ name }:Props) {
+export default function InputField({ name }: Props) {
   return (
     <form id="first_name">
       <div className="form-group">
-        <label
-          htmlFor="Name"
-          style={{ background: 'transparent' }}
-        >
+        <label htmlFor="Name" style={{ background: "transparent" }}>
           {name}
-          <input
-            type="text"
-          />
+          <input type="text" />
         </label>
         <input type="text" className="form-control input-lg" />
       </div>
