@@ -14,7 +14,7 @@
     /*width: 20vw;*/
 }
 .modal > .header {
-    border-bottom: 1px $borderColor;
+    /*border-bottom: 1px $borderColor;*/
     font-size: 3.5vh;
     text-align: center;
     padding-bottom: 2vh;
@@ -23,9 +23,10 @@
 .modal > .content {
     /*width: 100%;*/
     padding: 2vh 0vw;
-    border-bottom: 1px $borderColor;
+    /*border-bottom: 1px $borderColor;*/
 }
 .modal > .actions {
+    font-size: $fontSizeMed;
     flex-direction: row;
     width: 100%;
     padding: 2vh 0vw;

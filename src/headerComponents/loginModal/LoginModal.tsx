@@ -18,11 +18,9 @@ const LoginModal = () => {
           className="loginButtons"
           onClick={clickLoginButton}
         >
-          {" "}
           вход
         </button>
         <button type="button" className="loginButtons">
-          {" "}
           регистрация
         </button>
       </>

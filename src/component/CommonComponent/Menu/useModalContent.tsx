@@ -1,10 +1,13 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addCommand } from "../../../redax/commandSlice";
 
 interface Prop {
   name: string;
 }
 
 export default function useModalContent({ name }: Prop) {
+  const dispatch = useDispatch();
   const [state, setState] = useState<string>("");
 
   const buttonModalName = useCallback((nameToEdit: string) => {
@@ -20,15 +23,6 @@ export default function useModalContent({ name }: Prop) {
     }
   }, []);
 
-  const clickAddButton = useCallback(() => {
-    console.log(
-      state.length > 3
-        ? `ok, new ${buttonModalName(name)} name ${state}`
-        : "nope"
-    );
-  }, [state, name]);
-
-  /* {`Введите имя ${name}`} */
   const renderText = useMemo(
     () => (
       <label htmlFor="Name" style={{ textAlign: "center", display: "block" }}>
@@ -49,11 +43,22 @@ export default function useModalContent({ name }: Prop) {
 
   const renderCreateButton = useMemo(
     () => (
-      <button type="button" className="ButtonStyle" onClick={clickAddButton}>
+      <button
+        type="button"
+        className="ButtonStyle"
+        onClick={() => {
+          dispatch(
+            addCommand({
+              name: `${state}`,
+              letterCount: name.length,
+            })
+          );
+        }}
+      >
         добавить
       </button>
     ),
-    [clickAddButton]
+    []
   );
 
   return {

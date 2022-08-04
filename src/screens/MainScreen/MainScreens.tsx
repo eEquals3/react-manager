@@ -6,12 +6,13 @@ import "../../headerComponents/UpperPanel.scss";
 import "./LeftPanel.scss";
 import "../../component/CommonComponent/Button/Buttons.scss";
 import Menu from "../../component/CommonComponent/Menu/Menu";
-/* import LoginModal from "../../headerComponents/loginModal/LoginModal"; */
 import { CommandView } from "./openViewFunk/OpenCommandView";
 import Modal, {
   ModalRefHandle,
 } from "../../component/CommonComponent/Modal/Modal";
 import useModalContent from "../../component/CommonComponent/Menu/useModalContent";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redax/store";
 
 const MainScreen = () => {
   const modalRef = useRef<ModalRefHandle>(null);
@@ -21,6 +22,7 @@ const MainScreen = () => {
   const { buttonModalName, renderText, renderCreateButton } = useModalContent({
     name: addButtonModalName,
   });
+  const commands = useSelector((state: RootState) => state.commands);
 
   const createAddModal = useMemo(
     () => (
@@ -37,22 +39,12 @@ const MainScreen = () => {
 
   return (
     <div className="MainScreen">
-      {/* <view className="UpperPanelStyle">
-        <div style={{ background: "rgba(0, 0, 0, 0)" }}>
-          <LoginModal />
-        </div>
-      </view> */}
       <view className="MainScreen-MainContent">
         <view className="LeftPanelStyle">
           <img src={logo} className="MainScreen-logo" alt="logo" />
           <Menu
             name="Список команд"
-            containSubMenu={[
-              "команда 1",
-              "команда 2",
-              "команда 3",
-              "команда 4",
-            ]}
+            containSubMenu={commands.commands}
             onCommandChange={(commandId) => {
               console.log("commandId", commandId);
               setCommSt(commandId);
@@ -64,7 +56,7 @@ const MainScreen = () => {
           />
           <Menu
             name="Статистика"
-            containSubMenu={["команда 1", "команда 2", "команда 3"]}
+            containSubMenu={commands.commands}
             onCommandChange={(commandId) => {
               console.log("commandId", commandId);
               setCommSt(commandId);

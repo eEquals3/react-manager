@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import styled from "styled-components";
+import Modal from "../../component/CommonComponent/Modal/Modal";
 
 const Content = styled.div`
   height: 82vh;
@@ -16,7 +17,13 @@ const HelloScreen = () => {
   return (
     <Content>
       <Header>Hello</Header>
-      <div>hello</div>
+      <div>
+        hello
+        <Modal
+          triggerButtonName="Hello"
+          renderContent={<div> hello </div>}
+        ></Modal>
+      </div>
     </Content>
   );
 };
