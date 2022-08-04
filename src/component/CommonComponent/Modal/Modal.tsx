@@ -14,7 +14,7 @@ interface Props {
   triggerButtonName: string | null;
   triggerButtonStyle?: string;
   modalName?: string;
-  renderContent: ReactElement;
+  renderContent?: ReactElement;
   renderActions?: ReactElement;
   /*  someFn: ()=>void; */
 }
@@ -36,8 +36,8 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
     triggerButtonName,
     triggerButtonStyle = "123",
     modalName = "Alert",
-    renderContent = <> A </>,
-    renderActions = <> A </>,
+    renderContent,
+    renderActions,
   }: /*  someFn, */
   Props,
   ref
