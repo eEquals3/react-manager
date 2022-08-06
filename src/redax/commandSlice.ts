@@ -5,7 +5,7 @@ export interface CommandsState {
 }
 
 const initialState: CommandsState = {
-  commands: [""],
+  commands: ["команда1", "команда2", "команда3"],
 };
 
 interface Props {
@@ -27,6 +27,7 @@ export const commandsSlice = createSlice({
     addCommand: (state, action: PayloadAction<Props>) => {
       if (action.payload.letterCount > 3)
         state.commands.push(action.payload.name);
+      console.log(state.commands);
     },
   },
 });

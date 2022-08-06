@@ -47,9 +47,10 @@ export default function useModalContent({ name }: Prop) {
         type="button"
         className="ButtonStyle"
         onClick={() => {
+          console.log(state);
           dispatch(
             addCommand({
-              name: `${state}`,
+              name: state,
               letterCount: name.length,
             })
           );
@@ -58,7 +59,7 @@ export default function useModalContent({ name }: Prop) {
         добавить
       </button>
     ),
-    []
+    [state]
   );
 
   return {
