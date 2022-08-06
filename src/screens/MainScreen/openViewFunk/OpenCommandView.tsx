@@ -1,10 +1,28 @@
-import React, { ReactElement } from "react";
+import React, { memo, ReactElement } from "react";
 import "./OpenViewFunkStyles.scss";
+import { useDispatch } from "react-redux";
+import {
+  currentCommandSelect,
+  reduceCommand,
+} from "../../../redax/commandSlice";
 
-interface Prop {
-  name: string;
-}
+const CommandView = (): ReactElement => {
+  const dispatch = useDispatch();
+  const name = currentCommandSelect;
 
-export const CommandView = ({ name }: Prop): ReactElement => {
-  return <div className="viewHeader"> {name} </div>;
+  return (
+    <div className="viewHeader">
+      {name.toString()}
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(reduceCommand(name.toString()));
+        }}
+      >
+        удалить команду
+      </button>
+    </div>
+  );
 };
+
+export default memo(CommandView);

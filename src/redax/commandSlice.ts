@@ -1,10 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "./store";
 
 export interface CommandsState {
+  currentCommand: string | null;
   commands: string[];
 }
 
 const initialState: CommandsState = {
+  currentCommand: null,
   commands: ["команда1", "команда2", "команда3"],
 };
 
@@ -28,10 +31,36 @@ export const commandsSlice = createSlice({
       if (action.payload.letterCount > 3)
         state.commands.push(action.payload.name);
       console.log(state.commands);
+      state.commands.sort();
+    },
+    reduceCommand: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        commands: state.commands.filter(
+          (command) => command !== action.payload
+        ),
+      };
+    },
+    setCurrentCommand: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        currentCommand: action.payload,
+      };
     },
   },
 });
 
-export const { getAllUserCommands, addCommand } = commandsSlice.actions;
+const selectSelf = (state: RootState) => state;
+export const currentCommandSelect = createSelector(
+  selectSelf,
+  (state) => state.commands.currentCommand
+);
+
+export const {
+  getAllUserCommands,
+  addCommand,
+  reduceCommand,
+  setCurrentCommand,
+} = commandsSlice.actions;
 
 export default commandsSlice.reducer;
