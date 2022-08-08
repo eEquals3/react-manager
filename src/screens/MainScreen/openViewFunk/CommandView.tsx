@@ -23,6 +23,11 @@ const ModalText = styled.div`
   font-size: 2.5vh;
 `;
 
+const ModalButton = styled.button`
+  border-radius: 10px;
+  height: 2vw;
+`;
+
 const CommandView = ({ name }: Prop): ReactElement => {
   const dispatch = useDispatch();
   const modalRef = useRef<ModalRefHandle>(null);
@@ -33,10 +38,10 @@ const CommandView = ({ name }: Prop): ReactElement => {
         triggerButtonName={null}
         modalName="Подтверждение"
         renderContent={
-          <ModalText>Вы дейстивельно хотите это удалить?</ModalText>
+          <ModalText>Вы действительно хотите это удалить?</ModalText>
         }
         renderActions={
-          <button
+          <ModalButton
             type="button"
             onClick={() => {
               dispatch(reduceCommand(name));
@@ -44,7 +49,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
             }}
           >
             удалить команду
-          </button>
+          </ModalButton>
         }
       />
     ),
