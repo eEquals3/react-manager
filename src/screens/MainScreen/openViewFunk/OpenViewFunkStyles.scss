@@ -1,7 +1,13 @@
 @import "../../../utils/commonStyle";
 
 .viewHeader{
-    width: 100%;
+    @extend .DefaultView;
+    position: fixed;
+    border-bottom: 2px $borderColor;
+}
+
+.DefaultView{
+    width: 79%;
     height: min-content;
     display: flex;
     flex-direction: row;
@@ -9,7 +15,6 @@
     justify-content: center;
     padding-bottom: 2vh;
     padding-top: 2vh;
-    border-bottom: 2px $borderColor;
     text-align: center;
     color: $textColorBlack;
 }

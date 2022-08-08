@@ -1,13 +1,12 @@
-import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "./store";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface CommandsState {
-  currentCommand: string | null;
+  currentCommand: string;
   commands: string[];
 }
 
 const initialState: CommandsState = {
-  currentCommand: null,
+  currentCommand: "",
   commands: ["команда1", "команда2", "команда3"],
 };
 
@@ -21,7 +20,6 @@ export const commandsSlice = createSlice({
   initialState,
   reducers: {
     getAllUserCommands: (state, action: PayloadAction<string[]>) => {
-      // state.commands = [...action.payload];
       return {
         ...state,
         commands: action.payload,
@@ -49,12 +47,6 @@ export const commandsSlice = createSlice({
     },
   },
 });
-
-const selectSelf = (state: RootState) => state;
-export const currentCommandSelect = createSelector(
-  selectSelf,
-  (state) => state.commands.currentCommand
-);
 
 export const {
   getAllUserCommands,

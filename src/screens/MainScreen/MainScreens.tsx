@@ -6,7 +6,7 @@ import "../../headerComponents/UpperPanel.scss";
 import "./LeftPanel.scss";
 import "../../component/CommonComponent/Button/Buttons.scss";
 import Menu from "../../component/CommonComponent/Menu/Menu";
-import CommandView from "./openViewFunk/OpenCommandView";
+import FillerController from "./openViewFunk/MainComponentController";
 import Modal, {
   ModalRefHandle,
 } from "../../component/CommonComponent/Modal/Modal";
@@ -14,6 +14,7 @@ import useModalContent from "../../component/CommonComponent/Menu/useModalConten
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redax/store";
 import { setCurrentCommand } from "../../redax/commandSlice";
+import { currentCommandSelector } from "../../redax/selectors";
 
 const MainScreen = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,8 @@ const MainScreen = () => {
   const { buttonModalName, renderText, renderCreateButton } = useModalContent({
     name: addButtonModalName,
   });
-  const commands = useSelector((state: RootState) => state.commands);
+  const commands = useSelector((state: RootState) => state.commands.commands);
+  const currentCommand = useSelector(currentCommandSelector);
 
   const createAddModal = useMemo(
     () => (
@@ -45,7 +47,7 @@ const MainScreen = () => {
           <img src={logo} className="MainScreen-logo" alt="logo" />
           <Menu
             name="Список команд"
-            containSubMenu={commands.commands}
+            containSubMenu={commands}
             onCommandChange={(commandId) => {
               console.log("commandId", commandId);
               dispatch(setCurrentCommand(commandId));
@@ -57,7 +59,7 @@ const MainScreen = () => {
           />
           <Menu
             name="Статистика"
-            containSubMenu={commands.commands}
+            containSubMenu={commands}
             onCommandChange={(commandId) => {
               console.log("commandId", commandId);
               dispatch(setCurrentCommand(commandId));
@@ -82,7 +84,7 @@ const MainScreen = () => {
         {createAddModal}
 
         <view className="MainScreen-header">
-          <CommandView />
+          <FillerController commandName={currentCommand} />
         </view>
       </view>
     </div>
