@@ -1,7 +1,10 @@
-import React, { memo, ReactElement } from "react";
+import React, { memo, ReactElement, useMemo, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { reduceCommand, setCurrentCommand } from "../../../redax/commandSlice";
 import styled from "styled-components";
+import Modal, {
+  ModalRefHandle,
+} from "../../../component/CommonComponent/Modal/Modal";
 
 interface Prop {
   name: string;
@@ -16,8 +19,37 @@ const Button = styled.button`
   font-size: 2.5vh;
 `;
 
+const ModalText = styled.div`
+  font-size: 2.5vh;
+`;
+
 const CommandView = ({ name }: Prop): ReactElement => {
   const dispatch = useDispatch();
+  const modalRef = useRef<ModalRefHandle>(null);
+  const ConfirmDeleteModal = useMemo(
+    () => (
+      <Modal
+        ref={modalRef}
+        triggerButtonName={null}
+        modalName="Подтверждение"
+        renderContent={
+          <ModalText>Вы дейстивельно хотите это удалить?</ModalText>
+        }
+        renderActions={
+          <button
+            type="button"
+            onClick={() => {
+              dispatch(reduceCommand(name));
+              dispatch(setCurrentCommand(""));
+            }}
+          >
+            удалить команду
+          </button>
+        }
+      />
+    ),
+    []
+  );
 
   return (
     <div className="viewHeader">
@@ -25,12 +57,14 @@ const CommandView = ({ name }: Prop): ReactElement => {
       <Button
         type="button"
         onClick={() => {
-          dispatch(reduceCommand(name));
-          dispatch(setCurrentCommand(""));
+          modalRef.current?.open();
+          /* dispatch(reduceCommand(name));
+          dispatch(setCurrentCommand("")); */
         }}
       >
         удалить команду
       </Button>
+      {ConfirmDeleteModal}
     </div>
   );
 };
