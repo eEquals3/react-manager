@@ -1,13 +1,21 @@
 import React, { useMemo, useState } from "react";
+import "./LoginButtons.scss";
 
 export const useRenderRegisterModal = () => {
   const [stLogin, setStLogin] = useState<string>("");
   const [stPassword, setStPassword] = useState<string>("");
 
-  const renderContent = useMemo(
+  const renderRegisterContent = useMemo(
     () => (
-      <>
-        <label htmlFor="Name" style={{ textAlign: "center", display: "block" }}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <label
+          htmlFor="Name"
+          style={{
+            textAlign: "center",
+            display: "block",
+            paddingBottom: "1vw",
+          }}
+        >
           {}
           <input
             type="text"
@@ -16,10 +24,21 @@ export const useRenderRegisterModal = () => {
             }}
             value={stLogin}
             placeholder="Username"
-            style={{ borderRadius: "10px", textAlign: "center", height: "2vw" }}
+            style={{
+              borderRadius: "10px",
+              textAlign: "center",
+              height: "2vw",
+            }}
           />
         </label>
-        <label htmlFor="Psw" style={{ textAlign: "center", display: "block" }}>
+        <label
+          htmlFor="Psw"
+          style={{
+            textAlign: "center",
+            display: "block",
+            paddingBottom: "1vw",
+          }}
+        >
           {}
           <input
             type="password"
@@ -51,11 +70,21 @@ export const useRenderRegisterModal = () => {
             }}
           />
         </label>
-      </>
+      </div>
     ),
     []
   );
+  const renderRegisterAction = useMemo(
+    () => (
+      <button type="button" className="loginButtons">
+        зарагестрироваться
+      </button>
+    ),
+    []
+  );
+
   return {
-    renderContent,
+    renderRegisterAction,
+    renderRegisterContent,
   } as const;
 };

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Modal, {
   ModalRefHandle,
 } from "../../../component/CommonComponent/Modal/Modal";
+import "../../../component/CommonComponent/Modal/Modal.scss";
 
 interface Prop {
   name: string;
@@ -21,11 +22,22 @@ const Button = styled.button`
 
 const ModalText = styled.div`
   font-size: 2.5vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 `;
 
 const ModalButton = styled.button`
+  background: transparent;
   border-radius: 10px;
-  height: 2vw;
+  border-color: transparent;
+  font-size: 2vh;
+  height: 4vh;
+  &:hover,
+  &:active {
+    color: #0993bd;
+    background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+  }
 `;
 
 const CommandView = ({ name }: Prop): ReactElement => {
@@ -48,12 +60,12 @@ const CommandView = ({ name }: Prop): ReactElement => {
               dispatch(setCurrentCommand(""));
             }}
           >
-            удалить команду
+            Удалить команду
           </ModalButton>
         }
       />
     ),
-    []
+    [name]
   );
 
   return (
@@ -67,7 +79,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
           dispatch(setCurrentCommand("")); */
         }}
       >
-        удалить команду
+        Удалить команду
       </Button>
       {ConfirmDeleteModal}
     </div>
