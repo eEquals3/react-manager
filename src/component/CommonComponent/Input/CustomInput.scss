@@ -1,0 +1,11 @@
+label {
+  display: block;
+  text-align: center;
+}
+
+label > input {
+  border-radius: 10px;
+  text-align: center;
+  height: 4vh;
+  width: 20vw;
+}

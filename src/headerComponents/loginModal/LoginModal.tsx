@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useMemo, memo, useRef } from "react";
-import "./LoginButtons.scss";
+import "./LoginStyle.scss";
 import Modal, {
   ModalRefHandle,
 } from "../../component/CommonComponent/Modal/Modal";
 import { useRenderRegisterModal } from "./RegisterModal";
+import CustomInput from "../../component/CommonComponent/Input/CustomInput";
 
 const LoginModal = () => {
   const [stLogin, setStLogin] = useState<string>("");
@@ -25,14 +26,14 @@ const LoginModal = () => {
         renderActions={renderRegisterAction}
         renderContent={renderRegisterContent}
         ref={modalRef}
-      ></Modal>
+      />
     ),
     []
   );
 
   const LoginAction = useMemo(
     () => (
-      <>
+      <div className="actions">
         {RegisterModal}
         <button
           type="button"
@@ -48,50 +49,31 @@ const LoginModal = () => {
         >
           регистрация
         </button>
-      </>
+      </div>
     ),
     [clickLoginButton]
   );
 
   const LoginContent = useMemo(
     () => (
-      <>
-        <label
-          htmlFor="Name"
-          style={{
-            textAlign: "center",
-            display: "block",
-            paddingBottom: "1vw",
+      <div className="content">
+        <CustomInput
+          type="Text"
+          placeHolder="Username"
+          value={stLogin}
+          onChangeInput={(e) => {
+            setStLogin(e.target.value);
           }}
-        >
-          {}
-          <input
-            type="text"
-            onChange={(loginChange) => {
-              setStLogin(loginChange.target.value);
-            }}
-            value={stLogin}
-            placeholder="Username"
-            style={{ borderRadius: "10px", textAlign: "center", height: "2vw" }}
-          />
-        </label>
-        <label htmlFor="Psw" style={{ textAlign: "center", display: "block" }}>
-          {}
-          <input
-            type="password"
-            onChange={(passwordChange) => {
-              setStPassword(passwordChange.target.value);
-            }}
-            value={stPassword}
-            placeholder="Password"
-            style={{
-              borderRadius: "10px",
-              textAlign: "center",
-              height: "2vw",
-            }}
-          />
-        </label>
-      </>
+        />
+        <CustomInput
+          type="Password"
+          onChangeInput={(e) => {
+            setStPassword(e.target.value);
+          }}
+          value={stPassword}
+          placeHolder="Password"
+        />
+      </div>
     ),
     [stPassword, stLogin]
   );

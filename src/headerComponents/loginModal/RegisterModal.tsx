@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import "./LoginButtons.scss";
+import "./LoginStyle.scss";
 
 export const useRenderRegisterModal = () => {
   const [stLogin, setStLogin] = useState<string>("");

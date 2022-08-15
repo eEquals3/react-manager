@@ -18,6 +18,11 @@ const Button = styled.button`
   bottom: 15%;
   right: 1%;
   font-size: 2.5vh;
+  &:hover,
+  &:active {
+    color: #0993bd;
+    background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+  }
 `;
 
 const ModalText = styled.div`

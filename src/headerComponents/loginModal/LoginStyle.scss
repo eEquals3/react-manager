@@ -1,5 +1,14 @@
 @import "../../utils/commonStyle";
 
+.actions{
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+}
+
 .loginButtons{
     /*display: block;*/
     height: max-content;
