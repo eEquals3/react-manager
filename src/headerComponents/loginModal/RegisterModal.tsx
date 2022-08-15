@@ -1,84 +1,62 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import "./LoginStyle.scss";
+import CustomInput from "../../component/CommonComponent/Input/CustomInput";
 
 export const useRenderRegisterModal = () => {
   const [stLogin, setStLogin] = useState<string>("");
   const [stPassword, setStPassword] = useState<string>("");
+  const [stPasswordRepeat, setStPasswordRepeat] = useState<string>("");
+
+  const CheckPassword = useCallback(() => {
+    if (
+      stPasswordRepeat === stPassword &&
+      stPasswordRepeat.length > 3 &&
+      stLogin.length > 3
+    )
+      console.log("ok");
+  }, []);
 
   const renderRegisterContent = useMemo(
     () => (
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <label
-          htmlFor="Name"
-          style={{
-            textAlign: "center",
-            display: "block",
-            paddingBottom: "1vw",
+      <div className="content">
+        <CustomInput
+          type="text"
+          value={stLogin}
+          onChangeInput={(e) => {
+            setStLogin(e.target.value);
           }}
-        >
-          {}
-          <input
-            type="text"
-            onChange={(loginChange) => {
-              setStLogin(loginChange.target.value);
-            }}
-            value={stLogin}
-            placeholder="Username"
-            style={{
-              borderRadius: "10px",
-              textAlign: "center",
-              height: "2vw",
-            }}
-          />
-        </label>
-        <label
-          htmlFor="Psw"
-          style={{
-            textAlign: "center",
-            display: "block",
-            paddingBottom: "1vw",
+          placeHolder="Логин"
+        />
+        <div className="separator" />
+        <CustomInput
+          type="Password"
+          value={stLogin}
+          onChangeInput={(e) => {
+            setStPassword(e.target.value);
           }}
-        >
-          {}
-          <input
-            type="password"
-            onChange={(passwordChange) => {
-              setStPassword(passwordChange.target.value);
-            }}
-            value={stPassword}
-            placeholder="Password"
-            style={{
-              borderRadius: "10px",
-              textAlign: "center",
-              height: "2vw",
-            }}
-          />
-        </label>
-        <label htmlFor="Psw" style={{ textAlign: "center", display: "block" }}>
-          {}
-          <input
-            type="password"
-            onChange={(passwordChange) => {
-              setStPassword(passwordChange.target.value);
-            }}
-            value={stPassword}
-            placeholder="Repeat Password"
-            style={{
-              borderRadius: "10px",
-              textAlign: "center",
-              height: "2vw",
-            }}
-          />
-        </label>
+          placeHolder="Пароль"
+        />
+        <div className="separator" />
+        <CustomInput
+          type="Password"
+          value={stLogin}
+          onChangeInput={(e) => {
+            setStPasswordRepeat(e.target.value);
+          }}
+          placeHolder="Повторите пароль"
+        />
+        <div className="separator" />
       </div>
     ),
     []
   );
   const renderRegisterAction = useMemo(
     () => (
-      <button type="button" className="loginButtons">
-        зарагестрироваться
-      </button>
+      <div className="actions">
+        <button type="button" className="loginButtons" onClick={CheckPassword}>
+          зарагестрироваться
+        </button>
+      </div>
     ),
     []
   );

@@ -1,8 +1,14 @@
+@font-face {
+  font-family: adobe-clean;
+  src: local("AdobeClean-Light"),
+  url(AdobeClean-Light.ttf);
+}
+
 $font: adobe-clean, sans-serif;
 
 $fontSizeMed: 2.5vh;
-$fontSizeSmall: 1.5vh;
-$fontSizeBig: 5vh;
+$fontSizeSmall: 2vh;
+$fontSizeBig: 4vh;
 
 $textColorWhite: white;
 $textColorBlack: #1a1a1a;

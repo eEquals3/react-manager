@@ -38,8 +38,7 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
     modalName = "Alert",
     renderContent,
     renderActions,
-  }: /*  someFn, */
-  Props,
+  }: Props,
   ref
 ) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

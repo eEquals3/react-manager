@@ -1,14 +1,8 @@
-@font-face {
-    font-family: adobe-clean;
-    src: local("AdobeClean-Light"),
-    url(AdobeClean-Light.ttf);
-}
-
 @import "src/utils/commonStyle";
 
 .ButtonLoginStyle {
     display: initial;
-    height: 4.5vh;
+    height: 5.5vh;
     font-family: $font;
     background-color: rgba(0, 0, 75, 0);
     color: black;
@@ -17,7 +11,6 @@
     font-size: $fontSizeMed;
     border-radius: 10px;
     outline: 0;
-    text-transform: uppercase;
     margin-top: 1vh;
     margin-bottom: 1vh;
     cursor: pointer;

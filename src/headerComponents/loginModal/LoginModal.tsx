@@ -40,15 +40,15 @@ const LoginModal = () => {
           className="loginButtons"
           onClick={clickLoginButton}
         >
-          вход
+          Войти
         </button>
-        <button
-          type="button"
-          className="loginButtons"
-          onClick={() => modalRef.current?.open()}
-        >
-          регистрация
-        </button>
+        <text>
+          Нет аккаунта?
+          <view></view>
+          <text onClick={() => modalRef.current?.open()}>
+            Зарегестрироваться
+          </text>
+        </text>
       </div>
     ),
     [clickLoginButton]
@@ -59,20 +59,22 @@ const LoginModal = () => {
       <div className="content">
         <CustomInput
           type="Text"
-          placeHolder="Username"
+          placeHolder="Логин"
           value={stLogin}
           onChangeInput={(e) => {
             setStLogin(e.target.value);
           }}
         />
+        <div className="separator" />
         <CustomInput
           type="Password"
           onChangeInput={(e) => {
             setStPassword(e.target.value);
           }}
           value={stPassword}
-          placeHolder="Password"
+          placeHolder="Пароль"
         />
+        <div className="separator" />
       </div>
     ),
     [stPassword, stLogin]

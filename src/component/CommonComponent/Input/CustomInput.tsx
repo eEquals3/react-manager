@@ -5,8 +5,7 @@ interface Props {
   type: string;
   placeHolder: string;
   value: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onChangeInput: (id: any) => void;
+  onChangeInput: (id: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const InputField = ({

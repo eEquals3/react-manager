@@ -1,10 +1,11 @@
 label {
-  display: block;
+  display: flex;
   text-align: center;
+  align-items: center;
 }
 
 label > input {
-  border-radius: 10px;
+  border-radius: 50px / 100px;
   text-align: center;
   height: 4vh;
   width: 20vw;
