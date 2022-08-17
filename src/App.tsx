@@ -36,21 +36,17 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <view className="UpperPanelStyle">
-          <div
-            style={{
-              background: "rgba(0, 0, 0, 0)",
-              display: "flex",
-            }}
-          >
+        <div className="UpperPanelStyle">
+          <div>
             <LoginModal />
             <CustomLink to="/mainScreen">Home Page</CustomLink>
             <CustomLink to="/about">Hello Page</CustomLink>
           </div>
-        </view>
+        </div>
         <Routes>
-          <Route path="/mainScreen" element={<MainScreen />} />
-          <Route path="/about" element={<HelloScreen />} />
+          <Route path="/" element={<HelloScreen />} />
+          <Route path="about" element={<HelloScreen />} />
+          <Route path="mainScreen" element={<MainScreen />} />
         </Routes>
       </div>
     </Router>

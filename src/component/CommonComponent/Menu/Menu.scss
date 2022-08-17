@@ -16,7 +16,7 @@
     font-size: $fontSizeBig;
     background: rgba(255, 255, 255, 0);
     color: $textColorBlack;
-    text-shadow: 0px 2px 3px $textShadow;
+    text-shadow: 0 2px 3px $textShadow;
 }
 
 .menu-mainMenu{
@@ -30,6 +30,7 @@
 }
 
 .menu-subMenu{
+    cursor: pointer;
     width: available;
     height: available;
     display: flex;
@@ -41,6 +42,7 @@
 }
 
 .menu-subMenuButtons{
+    cursor: pointer;
     height: max-content;
     /* display: flex; */
     background: transparent;
@@ -55,7 +57,7 @@
     background: $radialShadowGradient;
     border-radius: 10px;
     color: $textColorHover;
-    text-shadow: 0px 2px 3px $textShadowHover;
+    text-shadow: 0 2px 3px $textShadowHover;
  }
 
 .menu-item {
@@ -71,5 +73,5 @@
     color: $textColorHover;
     background: $radialShadowGradient;
     border-radius: 15px;
-    text-shadow: 0px 2px 3px $textShadowHover;
+    text-shadow: 0 2px 3px $textShadowHover;
 }

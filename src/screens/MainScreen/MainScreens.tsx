@@ -3,7 +3,6 @@ import "reactjs-popup/dist/index.css";
 import logo from "./logo.svg";
 import "./MaicScreenStyle.scss";
 import "../../headerComponents/UpperPanel.scss";
-import "./LeftPanel.scss";
 import "../../component/CommonComponent/Button/Buttons.scss";
 import Menu from "../../component/CommonComponent/Menu/Menu";
 import FillerController from "./openViewFunk/MainComponentController";
@@ -41,51 +40,49 @@ const MainScreen = () => {
   );
 
   return (
-    <div className="MainScreen">
-      <view className="MainScreen-MainContent">
-        <view className="LeftPanelStyle">
-          <img src={logo} className="MainScreen-logo" alt="logo" />
-          <Menu
-            name="Список команд"
-            containSubMenu={commands}
-            onCommandChange={(commandId) => {
-              console.log("commandId", commandId);
-              dispatch(setCurrentCommand(commandId));
-            }}
-            onPlusBtnPressed={() => {
-              modalRef.current?.open();
-              setAddButtonModalName("Список команд");
-            }}
-          />
-          <Menu
-            name="Статистика"
-            containSubMenu={commands}
-            onCommandChange={(commandId) => {
-              console.log("commandId", commandId);
-              dispatch(setCurrentCommand(commandId));
-            }}
-            onPlusBtnPressed={() => {
-              modalRef.current?.open();
-              setAddButtonModalName("Статистика");
-            }}
-          />
-          <Menu
-            name="Список задач"
-            containSubMenu={["задача 1", "задача 2", "задача 3"]}
-            onCommandChange={(taskId) => {
-              console.log("taskId", taskId);
-            }}
-            onPlusBtnPressed={() => {
-              modalRef.current?.open();
-              setAddButtonModalName("Список задач");
-            }}
-          />
-        </view>
-        {createAddModal}
+    <div className="MainScreen-MainContent">
+      <div className="NavigatePanelStyle">
+        <img src={logo} className="MainScreen-logo" alt="logo" />
+        <Menu
+          name="Список команд"
+          containSubMenu={commands}
+          onCommandChange={(commandId) => {
+            console.log("commandId", commandId);
+            dispatch(setCurrentCommand(commandId));
+          }}
+          onPlusBtnPressed={() => {
+            modalRef.current?.open();
+            setAddButtonModalName("Список команд");
+          }}
+        />
+        <Menu
+          name="Статистика"
+          containSubMenu={commands}
+          onCommandChange={(commandId) => {
+            console.log("commandId", commandId);
+            dispatch(setCurrentCommand(commandId));
+          }}
+          onPlusBtnPressed={() => {
+            modalRef.current?.open();
+            setAddButtonModalName("Статистика");
+          }}
+        />
+        <Menu
+          name="Список задач"
+          containSubMenu={["задача 1", "задача 2", "задача 3"]}
+          onCommandChange={(taskId) => {
+            console.log("taskId", taskId);
+          }}
+          onPlusBtnPressed={() => {
+            modalRef.current?.open();
+            setAddButtonModalName("Список задач");
+          }}
+        />
+      </div>
+      {createAddModal}
 
-        <view className="MainScreen-header">
-          <FillerController commandName={currentCommand} />
-        </view>
+      <view className="MainScreen-centerContent">
+        <FillerController commandName={currentCommand} />
       </view>
     </div>
   );

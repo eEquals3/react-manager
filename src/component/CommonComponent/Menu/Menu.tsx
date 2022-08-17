@@ -52,7 +52,6 @@ const Menu = ({
     () => (
       <div className="menu-subMenu">
         {containSubMenu.map((it) => SubMenuButton(it))}
-        {/* <AddButton name={name} /> */}
         <button
           type="button"
           className="menu-subMenuButtons"

@@ -11,20 +11,21 @@ interface Prop {
   name: string;
 }
 
-const Button = styled.button`
+/* const Button = styled.button`
   background: transparent;
   border-radius: 10px;
   position: absolute;
   top: 15%;
   bottom: 15%;
   right: -29%;
+  cursor: pointer;
   font-size: 2.5vh;
   &:hover,
   &:active {
     color: #0993bd;
     background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
   }
-`;
+`; */
 
 const ModalText = styled.div`
   font-size: 2.5vh;
@@ -77,7 +78,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
   return (
     <div id="viewHeader" className="box-shadow">
       {name}
-      <Button
+      <button
         type="button"
         onClick={() => {
           modalRef.current?.open();
@@ -86,7 +87,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
         }}
       >
         Удалить команду
-      </Button>
+      </button>
       {ConfirmDeleteModal}
     </div>
   );
