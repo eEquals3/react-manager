@@ -12,11 +12,12 @@ interface Prop {
 }
 
 const Button = styled.button`
+  background: transparent;
   border-radius: 10px;
   position: absolute;
   top: 15%;
   bottom: 15%;
-  right: 1%;
+  right: -29%;
   font-size: 2.5vh;
   &:hover,
   &:active {
@@ -74,7 +75,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
   );
 
   return (
-    <div className="viewHeader">
+    <div id="viewHeader" className="box-shadow">
       {name}
       <Button
         type="button"

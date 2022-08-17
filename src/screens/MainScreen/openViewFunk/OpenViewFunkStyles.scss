@@ -1,14 +1,14 @@
 @import "../../../utils/commonStyle";
 
-.viewHeader{
+#viewHeader{
     @extend .DefaultView;
+    width: 50%;
     position: fixed;
-    border-bottom: 2px $borderColor;
+    box-shadow: 0 1em 1em -1em rgba(0, 0, 0, .25);
 }
 
 .DefaultView{
-    width: 79%;
-    height: min-content;
+    height: max-content;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -18,3 +18,4 @@
     text-align: center;
     color: $textColorBlack;
 }
+

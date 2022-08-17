@@ -1,10 +1,7 @@
 @import "../utils/commonStyle";
 
 .UpperPanelStyle {
-    background: $backgroundLinearGradient;
-    /*background-color: #761c1c;*/
-/*  margin-bottom: 1vh;
-    margin-top: 1vh;*/
+    /*background: $backgroundLinearGradient;*/
     height: 8vh;
     display: flex;
     flex-direction: row-reverse;
@@ -13,9 +10,5 @@
     padding-right: 20px;
     align-content: center;
     flex-wrap: wrap;
-    /*margin-right: 0.5vw;
-    margin-left: 0.5vw;
-    border: 2px solid rgba(0, 0, 0, 1);
-    border-radius: 10px;*/
     font-size: $fontSizeMed;
 }

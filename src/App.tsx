@@ -12,6 +12,7 @@ import MainScreen from "./screens/MainScreen/MainScreens";
 import "./headerComponents/UpperPanel.scss";
 import LoginModal from "./headerComponents/loginModal/LoginModal";
 import HelloScreen from "./screens/HelloScreen/HelloScreen";
+import "./App.scss";
 
 const CustomLink = ({ children, to, ...props }: LinkProps) => {
   const resolved = useResolvedPath(to);
@@ -34,7 +35,7 @@ const CustomLink = ({ children, to, ...props }: LinkProps) => {
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className="App">
         <view className="UpperPanelStyle">
           <div
             style={{

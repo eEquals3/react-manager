@@ -3,7 +3,6 @@
 .MainScreen {
   justify-content: center;
   height: 92vh;
-  background: $backgroundRadialGradient;
 }
 
 .MainScreen-MainContent {
@@ -27,7 +26,7 @@
 }
 
 .MainScreen-header {
-  width: 79%;
+  width: 80%;
   background-color: $backgroundGray;
   display: flex;
   flex-direction: column;
@@ -35,7 +34,6 @@
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: $textColorWhite;
-  border: 2px $borderColor;
   border-radius: 10px;
 }
 
