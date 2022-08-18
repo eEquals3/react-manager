@@ -10,7 +10,10 @@ const HelloScreen = () => {
         <p>hello there</p>
         <div>
           <h1>Contact us</h1>
-          <GitIcon size={30} />
+          <GitIcon
+            size={30}
+            onPress={() => window.open("https://github.com/eEquals3")}
+          />
         </div>
       </div>
     </div>

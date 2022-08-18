@@ -1,0 +1,21 @@
+#svg{
+  z-index: 0;
+  overflow: visible;
+}
+
+#Icon{
+  align-content: center;
+  justify-content: center;
+  display: flex;
+}
+
+#Icon:hover{
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.7),
+  0 0 3px 2px rgba(255, 255, 255, 0.6),
+  0 0 2px 4px rgba(255, 255, 255, 0.5),
+  0 0 3px 6px rgba(255, 255, 255, 0.4),
+  0 0 2px 9px rgba(255, 255, 255, 0.3),
+  0 0 3px 12px rgba(255, 255, 255, 0.2);
+}
