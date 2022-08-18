@@ -6,12 +6,14 @@ import Modal, {
   ModalRefHandle,
 } from "../../../component/CommonComponent/Modal/Modal";
 import "../../../component/CommonComponent/Modal/Modal.scss";
+import "../modalStyle.scss";
+import "../../../component/CommonComponent/Button/Buttons.scss";
 
 interface Prop {
   name: string;
 }
 
-/* const Button = styled.button`
+const Button = styled.button`
   background: transparent;
   border-radius: 10px;
   position: absolute;
@@ -25,16 +27,16 @@ interface Prop {
     color: #0993bd;
     background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
   }
-`; */
-
+`;
+/*
 const ModalText = styled.div`
   font-size: 2.5vh;
   display: flex;
   align-content: center;
   justify-content: center;
-`;
+`; */
 
-const ModalButton = styled.button`
+/* const ModalButton = styled.button`
   background: transparent;
   border-radius: 10px;
   border-color: transparent;
@@ -45,7 +47,7 @@ const ModalButton = styled.button`
     color: #0993bd;
     background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
   }
-`;
+`; */
 
 const CommandView = ({ name }: Prop): ReactElement => {
   const dispatch = useDispatch();
@@ -57,18 +59,21 @@ const CommandView = ({ name }: Prop): ReactElement => {
         triggerButtonName={null}
         modalName="Подтверждение"
         renderContent={
-          <ModalText>Вы действительно хотите это удалить?</ModalText>
+          <div id="modalContent">Вы действительно хотите это удалить?</div>
         }
         renderActions={
-          <ModalButton
-            type="button"
-            onClick={() => {
-              dispatch(reduceCommand(name));
-              dispatch(setCurrentCommand(""));
-            }}
-          >
-            Удалить команду
-          </ModalButton>
+          <div id="modalAction">
+            <button
+              className="ButtonStyle"
+              type="button"
+              onClick={() => {
+                dispatch(reduceCommand(name));
+                dispatch(setCurrentCommand(""));
+              }}
+            >
+              Удалить команду
+            </button>
+          </div>
         }
       />
     ),
@@ -78,7 +83,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
   return (
     <div id="viewHeader" className="box-shadow">
       {name}
-      <button
+      <Button
         type="button"
         onClick={() => {
           modalRef.current?.open();
@@ -87,7 +92,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
         }}
       >
         Удалить команду
-      </button>
+      </Button>
       {ConfirmDeleteModal}
     </div>
   );

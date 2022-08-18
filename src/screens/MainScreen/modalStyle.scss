@@ -1,0 +1,13 @@
+@import "src/utils/commonStyle";
+
+#modalContent{
+  display: flex;
+  justify-content: center;
+  margin: 1vh 0;
+}
+
+#modalAction{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

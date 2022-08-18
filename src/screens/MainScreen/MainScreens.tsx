@@ -9,7 +9,7 @@ import FillerController from "./openViewFunk/MainComponentController";
 import Modal, {
   ModalRefHandle,
 } from "../../component/CommonComponent/Modal/Modal";
-import useModalContent from "../../component/CommonComponent/Menu/useModalContent";
+import useModalContent from "./useModalContent";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redax/store";
 import { setCurrentCommand } from "../../redax/commandSlice";

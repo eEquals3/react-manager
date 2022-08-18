@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addCommand } from "../../../redax/commandSlice";
+import { addCommand } from "../../redax/commandSlice";
+import CustomInput from "../../component/CommonComponent/Input/CustomInput";
+import "./modalStyle.scss";
 
 interface Prop {
   name: string;
@@ -25,39 +27,39 @@ export default function useModalContent({ name }: Prop) {
 
   const renderText = useMemo(
     () => (
-      <label htmlFor="Name" style={{ textAlign: "center", display: "block" }}>
-        {}
-        <input
-          type="text"
-          onChange={(loginChange) => {
+      <div id="modalContent">
+        <CustomInput
+          onChangeInput={(loginChange) => {
             setState(loginChange.target.value);
           }}
           value={state}
-          placeholder={buttonModalName(name)}
-          style={{ borderRadius: "10px", textAlign: "center", height: "2vw" }}
+          type="text"
+          placeHolder={buttonModalName(name)}
         />
-      </label>
+      </div>
     ),
     [name, state]
   );
 
   const renderCreateButton = useMemo(
     () => (
-      <button
-        type="button"
-        className="ButtonStyle"
-        onClick={() => {
-          console.log(state);
-          dispatch(
-            addCommand({
-              name: state,
-              letterCount: name.length,
-            })
-          );
-        }}
-      >
-        добавить
-      </button>
+      <div id="modalAction">
+        <button
+          type="button"
+          className="ButtonStyle"
+          onClick={() => {
+            console.log(state);
+            dispatch(
+              addCommand({
+                name: state,
+                letterCount: name.length,
+              })
+            );
+          }}
+        >
+          добавить
+        </button>
+      </div>
     ),
     [state]
   );

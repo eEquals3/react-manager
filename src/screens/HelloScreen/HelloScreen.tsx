@@ -5,7 +5,13 @@ const HelloScreen = () => {
   return (
     <div id="content">
       <h1>Hello</h1>
-      <div>hello there</div>
+      <div>
+        <p>hello there</p>
+        <div>
+          <h1>Contact us</h1>
+          <i className="fa fa-github"></i>
+        </div>
+      </div>
     </div>
   );
 };

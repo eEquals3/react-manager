@@ -1,7 +1,9 @@
 @import "./src/utils/commonStyle";
 
+$Height: 92vh;
+
 #content {
-  height: 92vh;
+  height: $Height;
   display: block;
 }
 
@@ -16,9 +18,26 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  box-shadow: 0 1em 1em -0.5em rgba(0, 0, 0, .25);
+  box-shadow: 0 0.5em 0.7em -0.5em rgba(0, 0, 0, .25);
 }
 #content > div {
+  justify-content: flex-start;
+  align-content: flex-start;
+  font-family: adobe-clean, sans-serif;
+  font-size: 2.5vh;
+  flex-direction: column;
+  height: calc($Height - 2vh - 2em - 0.67em - 0.67em - 1vh);
+}
+
+#content > div > div {
+  margin: 0;
   font-family: $font;
-  font-size: $fontSizeMed;
+  display: flex;
+  position: relative;
+  top: calc($Height - 30vh);
+  left: 25%;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
