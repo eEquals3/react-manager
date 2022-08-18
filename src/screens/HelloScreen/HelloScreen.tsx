@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import "./HelloScreen.scss";
+import { GitIcon } from "../../component/CommonComponent/Icons/GitIcon";
 
 const HelloScreen = () => {
   return (
@@ -9,7 +10,7 @@ const HelloScreen = () => {
         <p>hello there</p>
         <div>
           <h1>Contact us</h1>
-          <i className="fa fa-github"></i>
+          <GitIcon size={30} />
         </div>
       </div>
     </div>

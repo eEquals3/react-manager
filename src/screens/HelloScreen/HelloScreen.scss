@@ -31,13 +31,13 @@ $Height: 92vh;
 
 #content > div > div {
   margin: 0;
-  font-family: $font;
+  font-family: adobe-clean, sans-serif;
   display: flex;
   position: relative;
-  top: calc($Height - 30vh);
+  top: calc($Height - 35vh);
   left: 25%;
   width: 50%;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
 }
