@@ -14,6 +14,16 @@ import LoginModal from "./headerComponents/loginModal/LoginModal";
 import HelloScreen from "./screens/HelloScreen/HelloScreen";
 import "./App.scss";
 
+const CustomBackground = () => {
+  return (
+    <>
+      <div className="color" />
+      <div className="color" />
+      <div className="color" />
+    </>
+  );
+};
+
 const CustomLink = ({ children, to, ...props }: LinkProps) => {
   const resolved = useResolvedPath(to);
   const match = useMatch({ path: resolved.pathname, end: true });
@@ -35,7 +45,7 @@ const CustomLink = ({ children, to, ...props }: LinkProps) => {
 const App = () => {
   return (
     <Router>
-      <div className="App">
+      <div id="App">
         <div className="UpperPanelStyle">
           <div>
             <LoginModal />
@@ -48,6 +58,7 @@ const App = () => {
           <Route path="about" element={<HelloScreen />} />
           <Route path="mainScreen" element={<MainScreen />} />
         </Routes>
+        <CustomBackground />
       </div>
     </Router>
   );

@@ -1,5 +1,40 @@
 @import "../src/utils/commonStyle";
 
-.App{
+body{
+  overflow: hidden;
+}
+
+#App{
   background: $backgroundLinearGradient;
+  overflow: hidden;
+}
+
+.color{
+  filter: blur(6em);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.color:nth-child(3){
+  width: 600px;
+  height: 600px;
+  top: 00%;
+  left: 00%;
+  background: #56f6cb;
+}
+.color:nth-child(4){
+  width: 700px;
+  height: 700px;
+  top: 00%;
+  left: 60%;
+  background: #7429f6;
+}
+.color:nth-child(5){
+  width: 600px;
+  height: 600px;
+  top: 40%;
+  left: 25%;
+  background: #6156f6;
 }

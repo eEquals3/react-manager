@@ -17,6 +17,13 @@
     background: rgba(255, 255, 255, 0);
     color: $textColorBlack;
     text-shadow: 0 2px 3px $textShadow;
+    &:hover,
+    &:active {
+        color: $textColorHover;
+        background: $radialShadowGradient;
+        border-radius: 15px;
+        text-shadow: 0 2px 3px $textShadowHover;
+    }
 }
 
 .menu-mainMenu{
@@ -51,13 +58,15 @@
     text-align: center;
     outline:0;
     font-size: $fontSizeMed;
-}
-
-.menu-subMenuButtons:hover{
-    background: $radialShadowGradient;
-    border-radius: 10px;
-    color: $textColorHover;
-    text-shadow: 0 2px 3px $textShadowHover;
+    font-family: adobe-clean, sans-serif;
+    text-shadow: 0 2px 3px $textShadow;
+    &:hover,
+    &:active {
+        background: $radialShadowGradient;
+        border-radius: 10px;
+        color: $textColorHover;
+        text-shadow: 0 2px 3px $textShadowHover;
+    }
  }
 
 .menu-item {
@@ -69,9 +78,4 @@
     font-size: $fontSizeMed;
 }
 
-.menu:hover {
-    color: $textColorHover;
-    background: $radialShadowGradient;
-    border-radius: 15px;
-    text-shadow: 0 2px 3px $textShadowHover;
-}
+

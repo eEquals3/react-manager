@@ -1,7 +1,7 @@
 import React, { memo, ReactElement, useMemo, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { reduceCommand, setCurrentCommand } from "../../../redax/commandSlice";
-import styled from "styled-components";
+/* import styled from "styled-components"; */
 import Modal, {
   ModalRefHandle,
 } from "../../../component/CommonComponent/Modal/Modal";
@@ -13,7 +13,7 @@ interface Prop {
   name: string;
 }
 
-const Button = styled.button`
+/* const Button = styled.button`
   background: transparent;
   border-radius: 10px;
   position: absolute;
@@ -27,7 +27,7 @@ const Button = styled.button`
     color: #0993bd;
     background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
   }
-`;
+`; */
 /*
 const ModalText = styled.div`
   font-size: 2.5vh;
@@ -83,7 +83,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
   return (
     <div id="viewHeader" className="box-shadow">
       {name}
-      <Button
+      <button
         type="button"
         onClick={() => {
           modalRef.current?.open();
@@ -92,7 +92,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
         }}
       >
         Удалить команду
-      </Button>
+      </button>
       {ConfirmDeleteModal}
     </div>
   );

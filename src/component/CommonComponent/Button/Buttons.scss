@@ -15,6 +15,7 @@
     margin: 1vh 0;
     cursor: pointer;
     box-shadow: 0 2px 3px $textShadow;
+    z-index: 1;
 }
 
 .ButtonLoginStyle:hover {
