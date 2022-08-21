@@ -50,25 +50,6 @@
     height: max-content;
 }
 
-.loginButtons{
-    color: $textColorBlack;
-    min-width: 10vw;
-    max-width: max-content + 1vw;
-    /*display: block;*/
-    font-family: $font;
-    height: max-content;
-    display: flex;
-    background: transparent;
-    border-width: 1px 2px;
-    border-radius: 15px;
-    padding: 1vh;
-    text-align: center;
-    font-size: $fontSizeMed;
-    text-shadow: 0px 2px 3px $textShadow;
-    justify-content: center;
-
-}
-
 .loginButtons:hover{
     color: $textColorHover;
     background: $radialShadowGradient;

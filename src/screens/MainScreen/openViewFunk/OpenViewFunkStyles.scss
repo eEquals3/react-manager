@@ -1,4 +1,5 @@
 @import "../../../utils/commonStyle";
+@import "src/component/CommonComponent/Button/Buttons";
 
 #viewHeader{
     @extend .DefaultView;
@@ -8,23 +9,11 @@
 }
 
 #viewHeader > button {
-    background: transparent;
-    border-radius: 1em;
+    @extend .ButtonStyle;
     position: absolute;
     top: 15%;
     bottom: 15%;
     right: -29%;
-    cursor: pointer;
-    font-family: $font;
-    font-size: $fontSizeMed;
-    text-shadow: $textShadow;
-    border-width: 1px 2px;
-    &:hover,
-    &:active {
-        color: $textColorHover;
-        text-shadow: $textShadowHover;
-        background: $radialShadowGradient;
-    }
 }
 
 .DefaultView{

@@ -30,11 +30,14 @@ const contentStyle = {
   width: "25vw",
 };
 
-// eslint-disable-next-line react/function-component-definition
+const alertButtonContainerStyle = {
+  justifyContent: "center",
+};
+
 const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
   {
-    triggerButtonName,
-    triggerButtonStyle = "123",
+    triggerButtonName = null,
+    triggerButtonStyle = "ButtonStyle",
     modalName = "Alert",
     renderContent,
     renderActions,
@@ -70,6 +73,17 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
     [triggerButtonName]
   );
 
+  const renderAlertAction = useMemo(
+    () => (
+      <div className="actions" style={alertButtonContainerStyle}>
+        <button type="button" className="ButtonStyle" onClick={closeModal}>
+          Ok
+        </button>
+      </div>
+    ),
+    []
+  );
+
   const renderModalBody = useMemo(
     () => (
       <div className="modal">
@@ -78,7 +92,11 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
         </button>
         <div className="header">{modalName}</div>
         <div className="content">{renderContent}</div>
-        <div className="actions">{renderActions}</div>
+        {renderActions ? (
+          <div className="actions">{renderActions}</div>
+        ) : (
+          renderAlertAction
+        )}
       </div>
     ),
     [renderContent, renderActions, modalName, closeModal]

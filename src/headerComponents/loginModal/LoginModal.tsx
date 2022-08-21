@@ -5,6 +5,7 @@ import Modal, {
 } from "../../component/CommonComponent/Modal/Modal";
 import { useRenderRegisterModal } from "./RegisterModal";
 import CustomInput from "../../component/CommonComponent/Input/CustomInput";
+import "../../component/CommonComponent/Button/Buttons.scss";
 
 const LoginModal = () => {
   const [stLogin, setStLogin] = useState<string>("");
@@ -14,6 +15,20 @@ const LoginModal = () => {
   const clickLoginButton = useCallback(() => {
     console.log(stLogin.length > 3 && stPassword.length > 3 ? "ok" : "nope");
   }, [stLogin, stPassword]);
+
+  const onChangeLogin = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setStLogin(e.target.value);
+    },
+    []
+  );
+
+  const onChangePassword = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setStPassword(e.target.value);
+    },
+    []
+  );
 
   const { renderRegisterAction, renderRegisterContent } =
     useRenderRegisterModal();
@@ -37,7 +52,7 @@ const LoginModal = () => {
         {RegisterModal}
         <button
           type="button"
-          className="loginButtons"
+          className="ButtonStyle"
           onClick={clickLoginButton}
         >
           Войти
@@ -61,16 +76,12 @@ const LoginModal = () => {
           type="Text"
           placeHolder="Логин"
           value={stLogin}
-          onChangeInput={(e) => {
-            setStLogin(e.target.value);
-          }}
+          onChangeInput={onChangeLogin}
         />
         <div className="separator" />
         <CustomInput
           type="Password"
-          onChangeInput={(e) => {
-            setStPassword(e.target.value);
-          }}
+          onChangeInput={onChangePassword}
           value={stPassword}
           placeHolder="Пароль"
         />
@@ -83,7 +94,7 @@ const LoginModal = () => {
   return (
     <Modal
       triggerButtonName="Авторизация"
-      triggerButtonStyle="ButtonLoginStyle"
+      triggerButtonStyle="ButtonStyle"
       modalName="Login"
       renderActions={LoginAction}
       renderContent={LoginContent}

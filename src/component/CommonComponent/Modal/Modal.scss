@@ -9,9 +9,9 @@
 .modal {
     font-family: $font;
     font-size: $fontSizeMed;
-    border-radius: 13px;
+    border-radius: 1em;
     background: $backgroundRadialGradient;
-    /*width: 20vw;*/
+    width: 25vw;
 }
 .modal > .header {
     /*border-bottom: 1px $borderColor;*/
@@ -27,7 +27,6 @@
 }
 .modal > .actions {
     font-size: $fontSizeMed;
-    width: calc(100% - 2vw);
     padding: 1vh 1vw;
 }
 .modal > .close {

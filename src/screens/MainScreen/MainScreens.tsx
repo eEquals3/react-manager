@@ -1,9 +1,10 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import "reactjs-popup/dist/index.css";
 import logo from "./logo.svg";
 import "./MaicScreenStyle.scss";
 import "../../headerComponents/UpperPanel.scss";
 import "../../component/CommonComponent/Button/Buttons.scss";
+import "../../component/CommonComponent/Menu/Menu.scss";
 import Menu from "../../component/CommonComponent/Menu/Menu";
 import FillerController from "./openViewFunk/MainComponentController";
 import Modal, {
@@ -26,6 +27,25 @@ const MainScreen = () => {
   const commands = useSelector((state: RootState) => state.commands.commands);
   const currentCommand = useSelector(currentCommandSelector);
 
+  const onCommandChange = useCallback((commandId: string) => {
+    console.log("commandId", commandId);
+    dispatch(setCurrentCommand(commandId));
+  }, []);
+
+  const onCommandsPlusBtnPressed = useCallback(() => {
+    modalRef.current?.open();
+    setAddButtonModalName("Список команд");
+  }, []);
+
+  const onStatisticPlusBtnPressed = useCallback(() => {
+    modalRef.current?.open();
+    setAddButtonModalName("Статистика");
+  }, []);
+
+  const onButtonPressed = useCallback(() => {
+    console.log("a");
+  }, []);
+
   const createAddModal = useMemo(
     () => (
       <Modal
@@ -46,38 +66,22 @@ const MainScreen = () => {
         <Menu
           name="Список команд"
           containSubMenu={commands}
-          onCommandChange={(commandId) => {
-            console.log("commandId", commandId);
-            dispatch(setCurrentCommand(commandId));
-          }}
-          onPlusBtnPressed={() => {
-            modalRef.current?.open();
-            setAddButtonModalName("Список команд");
-          }}
+          onCommandChange={onCommandChange}
+          onPlusBtnPressed={onCommandsPlusBtnPressed}
         />
         <Menu
           name="Статистика"
           containSubMenu={commands}
-          onCommandChange={(commandId) => {
-            console.log("commandId", commandId);
-            dispatch(setCurrentCommand(commandId));
-          }}
-          onPlusBtnPressed={() => {
-            modalRef.current?.open();
-            setAddButtonModalName("Статистика");
-          }}
+          onCommandChange={onCommandChange}
+          onPlusBtnPressed={onStatisticPlusBtnPressed}
         />
-        <Menu
-          name="Список задач"
-          containSubMenu={["задача 1", "задача 2", "задача 3"]}
-          onCommandChange={(taskId) => {
-            console.log("taskId", taskId);
-          }}
-          onPlusBtnPressed={() => {
-            modalRef.current?.open();
-            setAddButtonModalName("Список задач");
-          }}
-        />
+        <button
+          type="button"
+          className="menu-ButtonStyleLikeMenu"
+          onClick={onButtonPressed}
+        >
+          Список задач
+        </button>
       </div>
       {createAddModal}
 

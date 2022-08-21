@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 import "./LoginStyle.scss";
 import CustomInput from "../../component/CommonComponent/Input/CustomInput";
+import "../../component/CommonComponent/Button/Buttons.scss";
 
 export const useRenderRegisterModal = () => {
   const [stLogin, setStLogin] = useState<string>("");
@@ -53,7 +54,7 @@ export const useRenderRegisterModal = () => {
   const renderRegisterAction = useMemo(
     () => (
       <div className="actions">
-        <button type="button" className="loginButtons" onClick={CheckPassword}>
+        <button type="button" className="ButtonStyle" onClick={CheckPassword}>
           зарагестрироваться
         </button>
       </div>
