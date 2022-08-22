@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useCallback, useRef } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -10,7 +10,12 @@ import {
 } from "react-router-dom";
 import MainScreen from "./screens/MainScreen/MainScreens";
 import "./headerComponents/UpperPanel.scss";
-import LoginModal from "./headerComponents/loginModal/LoginModal";
+import LoginModal, {
+  LoginModalRefType,
+} from "./headerComponents/loginModal/LoginModal";
+import RegisterModal, {
+  RegisterModalRefType,
+} from "./headerComponents/loginModal/RegisterModal";
 import HelloScreen from "./screens/HelloScreen/HelloScreen";
 import "./App.scss";
 
@@ -43,12 +48,34 @@ const CustomLink = ({ children, to, ...props }: LinkProps) => {
 };
 
 const App = () => {
+  const loginModalRef = useRef<LoginModalRefType>(null);
+  const registerModalRef = useRef<RegisterModalRefType>(null);
+
+  const onRegisterPressed = useCallback(() => {
+    loginModalRef.current?.hide();
+    registerModalRef.current?.show();
+  }, [loginModalRef, registerModalRef]);
+
   return (
     <Router>
       <div id="App">
         <div className="UpperPanelStyle">
           <div>
-            <LoginModal />
+            <LoginModal
+              onRegisterPressed={onRegisterPressed}
+              /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+              onLoginPressed={(login: string, pass: string) => {
+                // todo dispatch
+              }}
+              ref={loginModalRef}
+            />
+            <RegisterModal
+              /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+              onRegisterPressed={(login: string, pass: string) => {
+                // todo dispatch
+              }}
+              ref={registerModalRef}
+            />
             <CustomLink to="/mainScreen">Home Page</CustomLink>
             <CustomLink to="/about">Hello Page</CustomLink>
           </div>

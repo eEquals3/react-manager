@@ -77,6 +77,7 @@ const Menu = ({
         contentStyle={{
           padding: "0px",
           border: "none",
+          borderRadius: "10px",
           background: "transparent",
         }}
         arrow={false}

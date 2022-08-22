@@ -7,9 +7,10 @@
     border-width: 1px 2px;
     font-family: $font;
     font-size: $fontSizeMed;
+    text-decoration: none;
     height: max-content;
     padding: 1vh 2vw;
-    min-width: 8vw;
+    min-width: 10vw;
     text-align: center;
     transition: all .1s;
     overflow: hidden;
@@ -19,8 +20,20 @@
         content: '';
         position: absolute;
         bottom: 0;
-        left: -110%;
-        width: 110%;
+        left: -65%;
+        width: 65%;
+        height: 100%;
+        transition: all .3s;
+        background-color: white;
+        border-radius: 0.9em;
+        z-index: -1;
+    }
+    &:before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        width: 65%;
         height: 100%;
         transition: all .3s;
         background-color: white;
@@ -29,8 +42,10 @@
     }
     &:hover {
         &:after {
-            width: 100%;
-            transform: translateX(110%);
+            transform: translateX(100%);
+        }
+        &:before {
+            transform: translateX(-100%);
         }
     }
 }

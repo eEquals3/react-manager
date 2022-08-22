@@ -14,7 +14,11 @@ const HelloScreen = () => {
       <div>
         <p>
           hello there
-          <Modal triggerButtonName="a" renderContent={<div> hello </div>} />
+          <Modal
+            triggerButtonName="a"
+            renderContent={<div> Hello </div>}
+            modalName="Hello"
+          />
         </p>
         <div>
           <h1>Contact us</h1>

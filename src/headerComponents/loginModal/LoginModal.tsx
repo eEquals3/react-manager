@@ -1,16 +1,46 @@
-import React, { useState, useCallback, useMemo, memo, useRef } from "react";
+import React, {
+  useState,
+  useCallback,
+  useMemo,
+  memo,
+  useImperativeHandle,
+  forwardRef,
+  useRef,
+} from "react";
 import "./LoginStyle.scss";
 import Modal, {
   ModalRefHandle,
 } from "../../component/CommonComponent/Modal/Modal";
-import { useRenderRegisterModal } from "./RegisterModal";
 import CustomInput from "../../component/CommonComponent/Input/CustomInput";
 import "../../component/CommonComponent/Button/Buttons.scss";
 
-const LoginModal = () => {
+interface Props {
+  onRegisterPressed: () => void;
+  onLoginPressed: (login: string, pass: string) => void;
+}
+
+export interface LoginModalRefType {
+  hide: () => void;
+  show: () => void;
+}
+
+const LoginModal: React.ForwardRefRenderFunction<LoginModalRefType, Props> = (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  { onLoginPressed, onRegisterPressed }: Props,
+  ref
+) => {
+  const modalRef = useRef<ModalRefHandle>(null);
   const [stLogin, setStLogin] = useState<string>("");
   const [stPassword, setStPassword] = useState<string>("");
-  const modalRef = useRef<ModalRefHandle>(null);
+
+  useImperativeHandle(ref, () => ({
+    show() {
+      modalRef.current?.open();
+    },
+    hide() {
+      modalRef.current?.close();
+    },
+  }));
 
   const clickLoginButton = useCallback(() => {
     console.log(stLogin.length > 3 && stPassword.length > 3 ? "ok" : "nope");
@@ -30,26 +60,9 @@ const LoginModal = () => {
     []
   );
 
-  const { renderRegisterAction, renderRegisterContent } =
-    useRenderRegisterModal();
-
-  const RegisterModal = useMemo(
-    () => (
-      <Modal
-        triggerButtonName={null}
-        modalName="Зарегестрироваться"
-        renderActions={renderRegisterAction}
-        renderContent={renderRegisterContent}
-        ref={modalRef}
-      />
-    ),
-    []
-  );
-
   const LoginAction = useMemo(
     () => (
       <div className="actions">
-        {RegisterModal}
         <button
           type="button"
           className="ButtonStyle"
@@ -60,9 +73,7 @@ const LoginModal = () => {
         <text>
           Нет аккаунта?
           <view></view>
-          <text onClick={() => modalRef.current?.open()}>
-            Зарегестрироваться
-          </text>
+          <text onClick={onRegisterPressed}>Зарегестрироваться</text>
         </text>
       </div>
     ),
@@ -98,8 +109,9 @@ const LoginModal = () => {
       modalName="Login"
       renderActions={LoginAction}
       renderContent={LoginContent}
+      ref={modalRef}
     />
   );
 };
 
-export default memo(LoginModal);
+export default memo(forwardRef(LoginModal));

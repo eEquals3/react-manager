@@ -1,9 +1,10 @@
 import React, {
   forwardRef,
+  memo,
   ReactElement,
   useCallback,
   useImperativeHandle,
-  /* useEffect, */ useMemo,
+  useMemo,
   useState,
 } from "react";
 import Popup from "reactjs-popup";
@@ -119,4 +120,4 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
   );
 };
 
-export default forwardRef(Modal);
+export default memo(forwardRef(Modal));
