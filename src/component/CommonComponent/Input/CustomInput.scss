@@ -1,3 +1,5 @@
+@import "src/utils/commonStyle";
+
 label {
   display: flex;
   text-align: center;
@@ -5,8 +7,13 @@ label {
 }
 
 label > input {
-  border-radius: 50px / 100px;
+  border-radius: 0.5em;
+  border-color: $borderColor;
   text-align: center;
   height: 4vh;
   width: 20vw;
+  &:hover, &:focus {
+    border-color: $borderColor;
+    outline: none;
+  }
 }

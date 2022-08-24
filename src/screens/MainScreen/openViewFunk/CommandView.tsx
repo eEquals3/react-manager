@@ -1,7 +1,6 @@
-import React, { memo, ReactElement, useMemo, useRef } from "react";
+import React, { memo, ReactElement, useCallback, useMemo, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { reduceCommand, setCurrentCommand } from "../../../redax/commandSlice";
-/* import styled from "styled-components"; */
 import Modal, {
   ModalRefHandle,
 } from "../../../component/CommonComponent/Modal/Modal";
@@ -16,6 +15,14 @@ interface Prop {
 const CommandView = ({ name }: Prop): ReactElement => {
   const dispatch = useDispatch();
   const modalRef = useRef<ModalRefHandle>(null);
+  const onDeleteClick = useCallback(() => {
+    dispatch(reduceCommand(name));
+    dispatch(setCurrentCommand(""));
+  }, []);
+  const onClickOpenModal = useCallback(() => {
+    modalRef.current?.open();
+  }, []);
+
   const ConfirmDeleteModal = useMemo(
     () => (
       <Modal
@@ -30,10 +37,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
             <button
               className="ButtonStyle"
               type="button"
-              onClick={() => {
-                dispatch(reduceCommand(name));
-                dispatch(setCurrentCommand(""));
-              }}
+              onClick={onDeleteClick}
             >
               Удалить команду
             </button>
@@ -47,12 +51,7 @@ const CommandView = ({ name }: Prop): ReactElement => {
   return (
     <div id="viewHeader" className="box-shadow">
       {name}
-      <button
-        type="button"
-        onClick={() => {
-          modalRef.current?.open();
-        }}
-      >
+      <button type="button" onClick={onClickOpenModal}>
         Удалить команду
       </button>
       {ConfirmDeleteModal}

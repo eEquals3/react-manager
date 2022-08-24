@@ -77,7 +77,7 @@ const LoginModal: React.ForwardRefRenderFunction<LoginModalRefType, Props> = (
         </text>
       </div>
     ),
-    [clickLoginButton]
+    [clickLoginButton, onRegisterPressed]
   );
 
   const LoginContent = useMemo(

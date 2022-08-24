@@ -50,6 +50,10 @@ const CustomLink = ({ children, to, ...props }: LinkProps) => {
 const App = () => {
   const loginModalRef = useRef<LoginModalRefType>(null);
   const registerModalRef = useRef<RegisterModalRefType>(null);
+  /*   useEffect(
+    () => console.log(loginModalRef, registerModalRef),
+    [loginModalRef, registerModalRef]
+  ); */
 
   const onRegisterPressed = useCallback(() => {
     loginModalRef.current?.hide();
