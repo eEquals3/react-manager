@@ -22,19 +22,19 @@ body{
   height: 600px;
   top: 00%;
   left: 00%;
-  background: #56f6cb;
+  background: $backgroundFirstColor;
 }
 .color:nth-child(4){
   width: 700px;
   height: 700px;
   top: 00%;
   left: 60%;
-  background: #7429f6;
+  background: $backgroundSecondColor;
 }
 .color:nth-child(5){
   width: 600px;
   height: 600px;
   top: 40%;
   left: 25%;
-  background: #6156f6;
+  background: $backgroundThirdColor;
 }

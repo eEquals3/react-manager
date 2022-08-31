@@ -132,7 +132,7 @@ const RegisterModal: React.ForwardRefRenderFunction<
       <div className="actions">
         {WarningModal}
         <button type="button" className="ButtonStyle" onClick={CheckPassword}>
-          зарагестрироваться
+          Зарагестрироваться
         </button>
         <div className="separator" />
       </div>

@@ -2,42 +2,42 @@
 
 .ButtonStyle {
     background-color: white;
-    color: $borderColor;
+    color: $activeComponentColor;
     border-radius: 0.5em;
-    border-color: $borderColor;
-    font-family: $font;
+    border-color: $activeComponentColor;
+    font-family: $fontBold;
     font-size: $fontSizeMed;
     text-decoration: none;
     height: max-content;
     padding: 1vh 2vw;
     min-width: 10vw;
     text-align: center;
-    transition: all .1s;
+    transition: all .3s;
     overflow: hidden;
     position: relative;
     z-index: 1;
     &:after{
         content: '';
         position: absolute;
-        bottom: 0;
-        left: -70%;
-        width: 70%;
-        height: 105%;
+        bottom: -25%;
+        left: -110%;
+        width: 110%;
+        height: 150%;
         transition: all .3s;
-        background-color: $borderColor;
-        border-radius: 0.5em;
+        background-image: $buttonBackColor;
+        border-radius: 1.5em;
         z-index: -1;
     }
     &:before{
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: -25%;
         left: 100%;
-        width: 70%;
-        height: 105%;
+        width: 110%;
+        height: 150%;
         transition: all .2s;
-        background-color: $borderColor;
-        border-radius: 0.5em;
+        background-image: $buttonBackColor;
+        border-radius: 1.5em;
         z-index: -1;
     }
     &:hover {

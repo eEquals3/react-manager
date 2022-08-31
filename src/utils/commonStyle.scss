@@ -1,10 +1,16 @@
 @font-face {
-  font-family: adobe-clean;
-  src: local("AdobeClean-Light"),
-  url(AdobeClean-Light.ttf);
+  font-family: "adobe-clean";
+  src: url(AdobeClean-Light.ttf);
 }
 
-$font: adobe-clean, sans-serif;
+@font-face {
+  font-family: "adobe-clean-bold";
+  src: url(AdobeClean-SemiCn.ttf);
+  font-weight: bold;
+}
+
+$font: "adobe-clean";
+$fontBold: "adobe-clean-bold";
 
 $fontSizeMed: 2.5vh;
 $fontSizeSmall: 2vh;
@@ -17,9 +23,14 @@ $textShadow: rgba(9, 9, 9, 0.4);
 $textColorHover: #f5f7f8;
 $textShadowHover: rgba(253, 255, 255, 0.4);
 
-$borderColor: rgb(87, 184, 225);
+$activeComponentColor: rgb(23, 197, 236);
+$buttonBackColor: linear-gradient(180deg, rgba(27, 231, 231, 0.5), rgba(121, 242, 255, 0.5));
 
 $backgroundRadialGradient: radial-gradient(rgb(172, 68, 238), rgb(2, 182, 182));
 $radialShadowGradient: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
 $backgroundLinearGradient: linear-gradient(123deg, rgba(86, 236, 252, 0.6), rgba(184, 98, 236, 0.75));/*linear-gradient(123deg, rgba(4, 185, 187, 0.60), rgba(145, 0, 229, 0.75));*/
 $backgroundGray: rgba(205, 208, 208, 0.7);
+
+$backgroundFirstColor: #129b78;
+$backgroundSecondColor: #7429f6;
+$backgroundThirdColor: #4238d3;

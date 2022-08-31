@@ -65,6 +65,13 @@ const App = () => {
       <div id="App">
         <div className="UpperPanelStyle">
           <div>
+            <RegisterModal
+              /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+              onRegisterPressed={(login: string, pass: string) => {
+                // todo dispatch
+              }}
+              ref={registerModalRef}
+            />
             <LoginModal
               onRegisterPressed={onRegisterPressed}
               /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
@@ -72,13 +79,6 @@ const App = () => {
                 // todo dispatch
               }}
               ref={loginModalRef}
-            />
-            <RegisterModal
-              /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-              onRegisterPressed={(login: string, pass: string) => {
-                // todo dispatch
-              }}
-              ref={registerModalRef}
             />
             <CustomLink to="/mainScreen">Home Page</CustomLink>
             <CustomLink to="/about">Hello Page</CustomLink>

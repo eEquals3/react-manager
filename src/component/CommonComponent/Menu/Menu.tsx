@@ -13,6 +13,14 @@ interface Props {
   onPlusBtnPressed: () => void;
 }
 
+const ContentStyle = {
+  padding: "0px",
+  borderRadius: "10px",
+  border: "none",
+  background: "transparent",
+  boxShadow: "none",
+};
+
 const Menu = ({
   name,
   containSubMenu,
@@ -74,12 +82,7 @@ const Menu = ({
         closeOnDocumentClick
         mouseLeaveDelay={150}
         mouseEnterDelay={50}
-        contentStyle={{
-          padding: "0px",
-          border: "none",
-          borderRadius: "10px",
-          background: "transparent",
-        }}
+        contentStyle={ContentStyle}
         arrow={false}
         nested
       >
