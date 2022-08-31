@@ -49,13 +49,16 @@ const CommandView = ({ name }: Prop): ReactElement => {
   );
 
   return (
-    <div id="viewHeader" className="box-shadow">
-      {name}
-      <button type="button" onClick={onClickOpenModal}>
-        Удалить команду
-      </button>
-      {ConfirmDeleteModal}
-    </div>
+    <>
+      <div id="viewHeader" className="box-shadow">
+        {name}
+        <button type="button" onClick={onClickOpenModal}>
+          Удалить команду
+        </button>
+        {ConfirmDeleteModal}
+      </div>
+      <div className="CenterContent" />
+    </>
   );
 };
 
