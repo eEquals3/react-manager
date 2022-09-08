@@ -12,9 +12,10 @@ import Modal, {
 } from "../../component/CommonComponent/Modal/Modal";
 import useModalContent from "./useModalContent";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redax/store";
-import { setCurrentCommand } from "../../redax/commandSlice";
-import { currentCommandSelector } from "../../redax/selectors";
+import { RootState } from "../../redux/store";
+import { setCurrentCommand } from "../../redux/commandSlice";
+import { currentCommandSelector } from "../../redux/selectors";
+import { setCurrentWinType } from "../../redux/utilitySlice";
 
 const MainScreen = () => {
   const dispatch = useDispatch();
@@ -23,13 +24,26 @@ const MainScreen = () => {
     useState<string>("Список команд");
   const { buttonModalName, renderText, renderCreateButton } = useModalContent({
     name: addButtonModalName,
+    ref: modalRef,
   });
   const commands = useSelector((state: RootState) => state.commands.commands);
   const currentCommand = useSelector(currentCommandSelector);
 
-  const onCommandChange = useCallback((commandId: string) => {
+  const onCommandChangeCommands = useCallback((commandId: string) => {
     console.log("commandId", commandId);
     dispatch(setCurrentCommand(commandId));
+    dispatch(setCurrentWinType("command"));
+  }, []);
+
+  const onCommandChangeStatistic = useCallback((commandId: string) => {
+    console.log("commandId", commandId);
+    dispatch(setCurrentCommand(commandId));
+    dispatch(setCurrentWinType("statistic"));
+  }, []);
+
+  const onTaskButtonPressed = useCallback(() => {
+    console.log("task");
+    dispatch(setCurrentWinType("task"));
   }, []);
 
   const onCommandsPlusBtnPressed = useCallback(() => {
@@ -40,10 +54,6 @@ const MainScreen = () => {
   const onStatisticPlusBtnPressed = useCallback(() => {
     modalRef.current?.open();
     setAddButtonModalName("Статистика");
-  }, []);
-
-  const onButtonPressed = useCallback(() => {
-    console.log("a");
   }, []);
 
   const createAddModal = useMemo(
@@ -66,19 +76,19 @@ const MainScreen = () => {
         <Menu
           name="Список команд"
           containSubMenu={commands}
-          onCommandChange={onCommandChange}
+          onCommandChange={onCommandChangeCommands}
           onPlusBtnPressed={onCommandsPlusBtnPressed}
         />
         <Menu
           name="Статистика"
           containSubMenu={commands}
-          onCommandChange={onCommandChange}
+          onCommandChange={onCommandChangeStatistic}
           onPlusBtnPressed={onStatisticPlusBtnPressed}
         />
         <button
           type="button"
           className="menu-ButtonStyleLikeMenu"
-          onClick={onButtonPressed}
+          onClick={onTaskButtonPressed}
         >
           Список задач
         </button>

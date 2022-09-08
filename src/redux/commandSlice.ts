@@ -12,7 +12,6 @@ const initialState: CommandsState = {
 
 interface Props {
   name: string;
-  letterCount: number;
 }
 
 export const commandsSlice = createSlice({
@@ -26,7 +25,7 @@ export const commandsSlice = createSlice({
       };
     },
     addCommand: (state, action: PayloadAction<Props>) => {
-      if (action.payload.letterCount > 3)
+      if (action.payload.name.length > 3)
         state.commands.push(action.payload.name);
       console.log(state.commands);
       state.commands.sort();

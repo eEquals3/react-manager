@@ -9,8 +9,12 @@ const defaultContent = {
   alignItems: "center",
 };
 
-const DefaultView = (): ReactElement => {
-  return <div style={defaultContent}>здесь ничего нет</div>;
+interface Prop {
+  text?: string;
+}
+
+const DefaultView = ({ text = "Здесь ничего нет" }: Prop): ReactElement => {
+  return <div style={defaultContent}>{text}</div>;
 };
 
 export default memo(DefaultView);

@@ -1,14 +1,16 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addCommand } from "../../redax/commandSlice";
+import { addCommand } from "../../redux/commandSlice";
 import CustomInput from "../../component/CommonComponent/Input/CustomInput";
 import "./modalStyle.scss";
+import { ModalRefHandle } from "../../component/CommonComponent/Modal/Modal";
 
 interface Prop {
   name: string;
+  ref: React.RefObject<ModalRefHandle>;
 }
 
-export default function useModalContent({ name }: Prop) {
+export default function useModalContent({ name, ref }: Prop) {
   const dispatch = useDispatch();
   const [state, setState] = useState<string>("");
 
@@ -49,10 +51,10 @@ export default function useModalContent({ name }: Prop) {
           className="ButtonStyle"
           onClick={() => {
             console.log(state);
+            ref.current?.close();
             dispatch(
               addCommand({
                 name: state,
-                letterCount: name.length,
               })
             );
           }}

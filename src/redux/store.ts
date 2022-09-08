@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import commandsReducer from "./commandSlice";
+import taskReducer from "./taskSlice";
+import utilityReducer from "./utilitySlice";
 
 export const store = configureStore({
   reducer: {
     commands: commandsReducer,
+    tasks: taskReducer,
+    utils: utilityReducer,
   },
 });
 

@@ -1,12 +1,13 @@
 import React, { memo, ReactElement, useCallback, useMemo, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { reduceCommand, setCurrentCommand } from "../../../redax/commandSlice";
+import { reduceCommand, setCurrentCommand } from "../../../redux/commandSlice";
 import Modal, {
   ModalRefHandle,
 } from "../../../component/CommonComponent/Modal/Modal";
 import "../../../component/CommonComponent/Modal/Modal.scss";
 import "../modalStyle.scss";
 import "../../../component/CommonComponent/Button/Buttons.scss";
+import { setCurrentWinType } from "../../../redux/utilitySlice";
 
 interface Prop {
   name: string;
@@ -16,9 +17,11 @@ const CommandView = ({ name }: Prop): ReactElement => {
   const dispatch = useDispatch();
   const modalRef = useRef<ModalRefHandle>(null);
   const onDeleteClick = useCallback(() => {
+    modalRef.current?.close();
     dispatch(reduceCommand(name));
     dispatch(setCurrentCommand(""));
-  }, []);
+    dispatch(setCurrentWinType(""));
+  }, [name]);
   const onClickOpenModal = useCallback(() => {
     modalRef.current?.open();
   }, []);
