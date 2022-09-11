@@ -2,7 +2,6 @@ import React, {
   forwardRef,
   memo,
   useCallback,
-  useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
@@ -33,24 +32,23 @@ const RegisterModal: React.ForwardRefRenderFunction<
   const [stPassword, setStPassword] = useState<string>("");
   const [stPasswordRepeat, setStPasswordRepeat] = useState<string>("");
   const modalRef = useRef<ModalRefHandle>(null);
+  const warningModalRef = useRef<ModalRefHandle>(null);
 
   useImperativeHandle(ref, () => ({
     show() {
+      console.log("show register modal");
       modalRef.current?.open();
     },
     hide() {
+      console.log("hide register modal");
       modalRef.current?.close();
     },
   }));
 
-  useEffect(() => {
-    console.log("stLogin", stLogin);
-  }, [stLogin]);
-
   const WarningModal = useMemo(
     () => (
       <Modal
-        ref={modalRef}
+        ref={warningModalRef}
         modalName="Внимание"
         renderContent={
           <div>Логин и пароль должен содержать не менее 4 символов</div>
@@ -58,7 +56,7 @@ const RegisterModal: React.ForwardRefRenderFunction<
         triggerButtonName={null}
       />
     ),
-    [modalRef]
+    []
   );
 
   const CheckPassword = useCallback(() => {
@@ -68,12 +66,11 @@ const RegisterModal: React.ForwardRefRenderFunction<
       stLogin.length > 3
     )
       console.log("ok");
-    else modalRef.current?.open();
+    else warningModalRef.current?.open();
   }, [stPassword, stPasswordRepeat, stLogin]);
 
   const onLoginChangeInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      console.log("e", e.target.value);
       setStLogin(e.target.value);
     },
     []
@@ -137,7 +134,7 @@ const RegisterModal: React.ForwardRefRenderFunction<
         <div className="separator" />
       </div>
     ),
-    [CheckPassword]
+    [CheckPassword, WarningModal]
   );
 
   return (
@@ -146,6 +143,11 @@ const RegisterModal: React.ForwardRefRenderFunction<
       modalName="Зарегестрироваться"
       renderActions={renderRegisterAction}
       renderContent={renderRegisterContent}
+      onClose={() => {
+        setStLogin("");
+        setStPassword("");
+        setStPasswordRepeat("");
+      }}
       ref={modalRef}
     />
   );

@@ -2,8 +2,9 @@ import React, { memo, ReactElement } from "react";
 import "./OpenViewFunkStyles.scss";
 import CommandView from "./CommandView";
 import DefaultView from "./DefaultView";
+import TaskView from "./TaskView";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
+import { currWinTypeSelector } from "../../../redux/selectors";
 
 interface Prop {
   commandName: string;
@@ -11,14 +12,14 @@ interface Prop {
 
 const FillerController = ({ commandName }: Prop): ReactElement => {
   console.log(commandName);
-  const type = useSelector((state: RootState) => state.utils.windowType);
+  const type = useSelector(currWinTypeSelector);
   switch (type) {
     case "command":
       return <CommandView name={commandName} />;
     case "statistic":
       return <DefaultView text="Здесь нет статистики" />;
     case "task":
-      return <DefaultView text="Здесь нет задач" />;
+      return <TaskView />;
     default:
       return <DefaultView />;
   }

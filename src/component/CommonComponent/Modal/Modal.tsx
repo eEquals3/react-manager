@@ -17,6 +17,7 @@ interface Props {
   modalName?: string;
   renderContent?: ReactElement;
   renderActions?: ReactElement;
+  onClose?: () => void;
   /*  someFn: ()=>void; */
 }
 
@@ -42,13 +43,15 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
     modalName = "Alert",
     renderContent,
     renderActions,
+    onClose = () => {},
   }: Props,
   ref
 ) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const closeModal = useCallback(() => {
     setIsOpen(false);
-  }, []);
+    onClose();
+  }, [isOpen]);
 
   useImperativeHandle(ref, () => ({
     open() {
@@ -82,7 +85,7 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
         </button>
       </div>
     ),
-    []
+    [alertButtonContainerStyle, closeModal]
   );
 
   const renderModalBody = useMemo(
@@ -100,7 +103,7 @@ const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (
         )}
       </div>
     ),
-    [renderContent, renderActions, modalName, closeModal]
+    [renderContent, renderActions, modalName, closeModal, renderAlertAction]
   );
 
   return (

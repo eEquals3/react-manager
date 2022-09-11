@@ -35,9 +35,11 @@ const LoginModal: React.ForwardRefRenderFunction<LoginModalRefType, Props> = (
 
   useImperativeHandle(ref, () => ({
     show() {
+      console.log("show login modal");
       modalRef.current?.open();
     },
     hide() {
+      console.log("hide login modal");
       modalRef.current?.close();
     },
   }));
@@ -109,6 +111,10 @@ const LoginModal: React.ForwardRefRenderFunction<LoginModalRefType, Props> = (
       modalName="Login"
       renderActions={LoginAction}
       renderContent={LoginContent}
+      onClose={() => {
+        setStLogin("");
+        setStPassword("");
+      }}
       ref={modalRef}
     />
   );
