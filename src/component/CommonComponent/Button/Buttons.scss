@@ -50,3 +50,9 @@
         }
     }
 }
+
+.ButtonTaskStyle {
+    @extend .ButtonStyle;
+    width: 100%;
+    min-height: 10%;
+}

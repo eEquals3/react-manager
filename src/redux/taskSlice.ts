@@ -13,8 +13,21 @@ export interface TaskState {
 const initialState: TaskState = {
   currentTask: "",
   tasks: [
-    { name: "задача 1", description: "сделать то" },
-    { name: "задача 2", description: "сделать то" },
+    { name: "задача 1", description: "сделать 1" },
+    { name: "задача 2", description: "сделать 2" },
+    { name: "задача 3", description: "сделать 3" },
+    { name: "задача 4", description: "сделать 4" },
+    { name: "задача 5", description: "сделать 5" },
+    { name: "задача 6", description: "сделать 6" },
+    { name: "задача 7", description: "сделать 7" },
+    { name: "задача 8", description: "сделать 8" },
+    { name: "задача 9", description: "сделать 9" },
+    { name: "задача 10", description: "сделать 10" },
+    { name: "задача 11", description: "сделать 11" },
+    { name: "задача 12", description: "сделать 12" },
+    { name: "задача 13", description: "сделать 13" },
+    { name: "задача 14", description: "сделать 14" },
+    { name: "задача 15", description: "сделать 15" },
   ],
 };
 
