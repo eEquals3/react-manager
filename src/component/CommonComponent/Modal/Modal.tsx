@@ -34,6 +34,8 @@ const contentStyle = {
 
 const alertButtonContainerStyle = {
   justifyContent: "center",
+  display: "flex",
+  alignItems: "center",
 };
 
 const Modal: React.ForwardRefRenderFunction<ModalRefHandle, Props> = (

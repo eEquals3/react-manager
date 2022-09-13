@@ -45,3 +45,12 @@ $Height: 92vh;
 #content > div > div > h1 {
   margin: 0.5em;
 }
+
+#content > div > div > div{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: calc(30px + 30px + 20px + 20px);
+  justify-content: space-around;
+}
+

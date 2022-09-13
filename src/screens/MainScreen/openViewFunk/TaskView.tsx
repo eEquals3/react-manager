@@ -21,7 +21,7 @@ const TaskView = (): ReactElement => {
       <div className="TaskCenterContent">
         <div>
           <header> Список задач </header>
-          <div>{tasks.map(renderButton)}</div>
+          <div dir="ltr">{tasks.map(renderButton)}</div>
         </div>
       </div>
     </>

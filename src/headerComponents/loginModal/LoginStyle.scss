@@ -11,13 +11,13 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0 0 1vh 1vw;
-    color: $textColorBlack;
 }
 
 .actions > text{
     font-family: $font;
     display: flex;
     font-size: $fontSizeMed;
+    color: $textColorBlack;
     text-shadow: 0 2px 3px $textShadow;
     flex-direction: row;
     align-content: flex-end;

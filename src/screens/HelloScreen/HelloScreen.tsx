@@ -22,7 +22,10 @@ const HelloScreen = () => {
         </p>
         <div>
           <h1>Contact us</h1>
-          <GitIcon size={30} onPress={onPress} />
+          <div>
+            <GitIcon size={30} onPress={onPress} />
+            <GitIcon size={30} onPress={onPress} />
+          </div>
         </div>
       </div>
     </div>

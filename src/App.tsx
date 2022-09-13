@@ -23,8 +23,8 @@ const CustomBackground = () => {
   return (
     <>
       <div className="color" />
-      <div className="color" />
-      <div className="color" />
+      {/* <div className="color" />
+      <div className="color" /> */}
     </>
   );
 };
