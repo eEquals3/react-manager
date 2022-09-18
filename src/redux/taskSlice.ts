@@ -7,58 +7,60 @@ export interface Task {
 
 export interface TaskState {
   currentTask: string;
-  tasks: Task[];
+  tasks: Record<string, Task>;
 }
 
 const initialState: TaskState = {
   currentTask: "",
-  tasks: [
-    { name: "задача 1", description: "сделать 1" },
-    { name: "задача 2", description: "сделать 2" },
-    { name: "задача 3", description: "сделать 3" },
-    { name: "задача 4", description: "сделать 4" },
-    { name: "задача 5", description: "сделать 5" },
-    { name: "задача 6", description: "сделать 6" },
-    { name: "задача 7", description: "сделать 7" },
-    { name: "задача 8", description: "сделать 8" },
-    { name: "задача 9", description: "сделать 9" },
-    { name: "задача 10", description: "сделать 10" },
-    { name: "задача 11", description: "сделать 11" },
-    { name: "задача 12", description: "сделать 12" },
-    { name: "задача 13", description: "сделать 13" },
-    { name: "задача 14", description: "сделать 14" },
-    { name: "задача 15", description: "сделать 15" },
-  ],
+  tasks: {
+    "u6n5y4y-h5h6j7k8-n3n3n3-j5j6j": { name: "1", description: "1" },
+    "uafasfy-h5h6j7k8-n3n3n3-j5j6j": { name: "2", description: "2" },
+    "uasfaff-h5h6j7k8-n3n3n3-j5j6j": { name: "3", description: "3" },
+    "u6n5y4y-h5hasgg8-n3n3n3-j5j6j": { name: "4", description: "4" },
+    "u6n5y4y-h5h6fck8-n3n3n3-j5j6j": { name: "5", description: "5" },
+    "u6n5y4y-h5h6j7k8-n3n3n3-sdfgh": { name: "6", description: "6" },
+    "u6n5y4y-h5h6xcv8-n3n3n3-j5j6j": { name: "7", description: "7" },
+    "u6n5y4y-ijhghjjh-n3n3n3-j5j6j": { name: "8", description: "8" },
+    "u6n5y4y-h5h6jdfg-n3n3n3-j5j6j": { name: "9", description: "9" },
+    "u6n5y4y-qwertyrt-n3n3n3-j5j6j": { name: "10", description: "10" },
+    "u6n5y4y-qwertyyu-n3n3n3-j5j6j": { name: "11", description: "11" },
+  },
 };
-
-interface Props {
-  name: string;
-  description: string;
-}
 
 export const taskSlice = createSlice({
   name: "Task",
   initialState,
   reducers: {
-    addTask: (state, action: PayloadAction<Props>) => {
-      if (action.payload.name.length > 3)
-        state.tasks.push({
-          name: action.payload.name,
-          description: action.payload.description,
-        });
-      console.log(state.tasks);
-      state.tasks.sort();
-    },
-    reduceTask: (state, action: PayloadAction<string>) => {
+    addTask: (state, action: PayloadAction<{ id: string; task: Task }>) => {
+      // if (action.payload.name.length > 3)
+      //   state.tasks.push({
+      //     name: action.payload.name,
+      //     description: action.payload.description,
+      //   });
+      // console.log(state.tasks);
+      // state.tasks.sort();
+
       return {
         ...state,
-        commands: state.tasks.filter((task) => task.name !== action.payload),
+        tasks: {
+          ...state.tasks,
+          [action.payload.id]: action.payload.task,
+        },
+      };
+    },
+    reduceTask: (state, action: PayloadAction<string>) => {
+      const currentTaskList = state.tasks;
+      delete currentTaskList[action.payload];
+
+      return {
+        ...state,
+        tasks: currentTaskList,
       };
     },
     setCurrentTask: (state, action: PayloadAction<string>) => {
       return {
         ...state,
-        currentCommand: action.payload,
+        currentTask: action.payload,
       };
     },
   },

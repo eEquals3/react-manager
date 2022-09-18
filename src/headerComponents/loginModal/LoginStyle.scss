@@ -32,15 +32,14 @@
     @extend text;
     text-underline-color: #1a1a1a;
     cursor: default;
+    &:hover{
+        color: $textColorHover;
+        text-shadow: $textShadowHover;
+    }
 }
 
 .actions > text > view{
     margin-left: 5px;
-}
-
-.actions > text > text:hover{
-    color: $textColorHover;
-    text-shadow: $textShadowHover;
 }
 
 .content{
@@ -50,9 +49,11 @@
     height: max-content;
 }
 
-.loginButtons:hover{
-    color: $textColorHover;
-    background: $radialShadowGradient;
-    border-radius: 15px;
-    text-shadow: 0px 2px 3px $textShadowHover;
+.loginButtons{
+    &:hover{
+        color: $textColorHover;
+        background: $radialShadowGradient;
+        border-radius: 15px;
+        text-shadow: 0px 2px 3px $textShadowHover;
+    }
 }

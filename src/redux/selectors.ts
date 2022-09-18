@@ -1,28 +1,33 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-export const currCommandSelector = createSelector(
+export const getCurrentCommand = createSelector(
   (state: RootState) => state,
   (state) => state.commands.currentCommand
 );
 
-export const CommandsSelector = createSelector(
+export const getCommands = createSelector(
   (state: RootState) => state,
   (state) => state.commands.commands
 );
 
-export const TaskSelector = createSelector(
+export const getTasks = createSelector(
   (state: RootState) => state,
   (state) => state.tasks.tasks
 );
 
-export const currWinTypeSelector = createSelector(
+export const getCurrentTask = createSelector(
+  (state: RootState) => state,
+  (state) => state.tasks.currentTask
+);
+
+export const getWindowType = createSelector(
   (state: RootState) => state,
   (state) => state.utils.windowType
 );
 
 /* export const currentWinTypeSelector = createSelector(
-  currWinTypeSelector,
+  getWindowType,
   (currentType) => {
     return currentType;
   }

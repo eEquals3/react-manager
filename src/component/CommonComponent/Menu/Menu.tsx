@@ -80,7 +80,7 @@ const Menu = ({
         position="right top"
         on="hover"
         closeOnDocumentClick
-        mouseLeaveDelay={150}
+        mouseLeaveDelay={250}
         mouseEnterDelay={50}
         contentStyle={ContentStyle}
         arrow={false}

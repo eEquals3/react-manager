@@ -13,7 +13,7 @@ import Modal, {
 import useModalContent from "./useModalContent";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentCommand } from "../../redux/commandSlice";
-import { CommandsSelector, currCommandSelector } from "../../redux/selectors";
+import { getCommands, getCurrentCommand } from "../../redux/selectors";
 import { setCurrentWinType } from "../../redux/utilitySlice";
 
 const MainScreen = () => {
@@ -25,8 +25,8 @@ const MainScreen = () => {
     name: addButtonModalName,
     ref: modalRef,
   });
-  const commands = useSelector(CommandsSelector);
-  const currentCommand = useSelector(currCommandSelector);
+  const commands = useSelector(getCommands);
+  const currentCommand = useSelector(getCurrentCommand);
 
   const onCommandChangeCommands = useCallback((commandId: string) => {
     console.log("commandId", commandId);
